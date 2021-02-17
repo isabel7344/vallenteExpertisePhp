@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Montserrat&display=swap');
+
+html,
+body {
+    background-image: url("img/fond2.jpg");;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    font-family:"Montserrat" ;
+}
+
+.navbar-color,
+.footer-color {
+    background-color:#404040;
+}
+
+a:hover {
+    cursor: pointer;
+    background-color:#DC2F02;
+}
+
+.text-navbar {
+    color: white !important ;
+}
+
+.navbar-brand:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.title{
+    font-size: 7vh;
+    color: black;
+    text-decoration: underline;
+}
+.slogan {
+    font-size: 3vh;
+   
+}
+
+/* css page accueil */
+.img-responsive{
+    width: 6rem;
+    height: auto;
+    margin-right: 1rem;
+}
+.NameLogo{
+display: flex !important;
+flex-direction: column;
+color: white;
+text-transform: uppercase;
+font-size: .8rem;
+
+}
+.NameLogo span{
+    font-size: .8rem;
+}
+.SousTitre{
+    color: white;   
+}
+
+.Name{
+    color: #DC2F02;
+    font-weight: bold;
+    text-decoration: underline;
+  
+}
+.Name2{
+    color: #DC2F02;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 4vh;
+  
+}
+.img1 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 200px;
+    width: 200px;
+}
+    .textHome{
+    font-size: 2vh;
+    /* text-align: center; */
+}
+
+/* css de la page services */
+.head{
+    background-color:#DC2F02 
+}
+
+.card-img{
+    height: 20rem;
+   
+}
+.card-text{
+    font-size: 16px;
+}
+.card-title{
+    font-size: 18px; 
+    font-weight: bold; 
+    color: #DC2F02;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.title-card{
+    text-decoration: underline; 
+}
+.card{
+    background-color:#e0e0eb ;
+   
+}
+/* css footer */
+footer a:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+footer em:hover {
+    color: red !important;
+}
+.NameEntreprise{
+    text-align: center;
+}
+.Adress{
+    text-align: center;
+    color: white;
+    font-size: 12px;
+  
+}
+.AdressMail{
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    margin-top: 20px;
+  
+}
+.logoFacebook{
+    width: 40px;
+    height: 40px;
+    margin-top: 25px;
+}
+.iconMail{
+    margin-top: 0;
+}
+.person-shadow{
+    box-shadow: 0px 2px 15px black;
+}
+.logoVallente{
+    width: 50px;
+    height: 50px;
+
+}
+.subtitle{
+    text-decoration: underline;
+}
+/* fixation du footer */
+.wrapper {
+    min-height: calc(100vh - 246px);
+}
+
+
+.logoFooter {
+    color: red;
+    background-color: red;
+}
+
