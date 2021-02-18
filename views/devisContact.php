@@ -16,7 +16,7 @@
 <body>
     <?php include '../commons/nav.php' ?>
     <div id="services" class="col-xl-8 col-sm-11 bg-white text-center mt-3 py-2 mx-auto rounded ">
-        <img class="imageFond" src="../assets/img/abidjan-ivory-coast.jpg" alt="Abidjan">
+        <img class="imageFond " src="../assets/img/abidjan-ivory-coast.jpg" alt="Abidjan">
         <h1 class="title">Vallente Expertise 181</h1>
         <h2 class="slogan">LA PREVENTION, C’EST NOTRE METIER!</h2>
         <div class="container px-lg-5">
