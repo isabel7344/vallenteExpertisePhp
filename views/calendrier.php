@@ -18,8 +18,8 @@
 
 <body style="overflow: hidden;">
     <div class=" row justify-content-center" id="reservation">
-        <div class="col-xl-8 col-sm-11">
-            <div style="display: flex;">
+        <div class="col-xl-8 col-sm-11">   
+            <div class="d-flex justify-content-center mb-1 mt-3">
                 <form action="../controllers/calendrierDispoController.php" method="POST">
                     <input name="month" type="hidden" value=<?php  $_SESSION["calendrier"]->getMonthName(); ?>>
                     <input name="year" type="hidden" value=<?php  $_SESSION["calendrier"]->getYear(); ?>>
@@ -36,7 +36,7 @@
             </div>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="text-center text-white bg-dark">
                         <th>lu</th>
                         <th>ma</th>
                         <th>me</th>
@@ -51,7 +51,7 @@
                     $case = 1;
                     $day = 1;
                     while ($day <=  $_SESSION["calendrier"]->getNbDayInMonth()) { ?>
-                        <tr>
+                        <tr class="text-center">
                             <?php for ($i = 1; $i <= 7; $i++) { ?>
                                 <td class="<?= $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? '' : 'bg-secondary' ?>">
                                     <?= $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? $day++ : '' ?>

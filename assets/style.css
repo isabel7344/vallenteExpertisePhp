@@ -111,14 +111,8 @@ font-size: .8rem;
 }
 .card{
     background-color:#e0e0eb ;
-   
 }
 
-
-.imageFond{
-    background-repeat: no-repeat;
-    background-size: contain;
-}
 /* css footer */
 footer a:hover {
     background-color: rgba(0, 0, 0, 0);
@@ -133,15 +127,13 @@ footer em:hover {
 .Adress{
     text-align: center;
     color: white;
-    font-size: 12px;
-  
+    font-size: 12px; 
 }
 .AdressMail{
     text-align: center;
     color: white;
     font-size: 12px;
     margin-top: 20px;
-  
 }
 .logoFacebook{
     width: 40px;

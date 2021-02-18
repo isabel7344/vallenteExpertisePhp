@@ -66,10 +66,12 @@
                     </form>
                 </div>
             </div>
-            <div class="container-fluid pt-5">
+            <div class="container-fluid pt-3 bg-dark">
+            <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
                 <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
             </div>
         </div>
+    </div>
         <?php include '../commons/footer.php' ?>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>
