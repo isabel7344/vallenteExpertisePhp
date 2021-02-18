@@ -113,6 +113,12 @@ font-size: .8rem;
     background-color:#e0e0eb ;
    
 }
+
+
+.imageFond{
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 /* css footer */
 footer a:hover {
     background-color: rgba(0, 0, 0, 0);
