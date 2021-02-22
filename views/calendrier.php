@@ -1,5 +1,22 @@
 <?php
     require_once("../controllers/calendrierDispoController.php");
+    require("../modeles/training_sessions.php");
+    function getCssIfEventInDay($eventInDay) {
+        if (empty($eventInDay)) {
+            return "";
+        } else if ($eventInDay['place_prise'] >= $eventInDay['place_dispo']) {
+            return 'bg-danger';
+        } else {
+            return 'bg-success';
+        }
+    }
+    function getCssForDayNotInCalendar($case, $day) {
+        return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? '' : 'bg-secondary';
+    }
+
+    function printDayIfInCalendar ($case, &$day){
+        return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? $day++ : '';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +36,7 @@
 <body style="overflow: hidden;">
     <div class=" row justify-content-center" id="reservation">
         <div class="col-xl-8 col-sm-11">   
-            <div class="d-flex justify-content-center mb-1 mt-3">
+            <div class="d-flex justify-content-center mb-1 mt-2">
                 <form action="../controllers/calendrierDispoController.php" method="POST">
                     <input name="month" type="hidden" value=<?php  $_SESSION["calendrier"]->getMonthName(); ?>>
                     <input name="year" type="hidden" value=<?php  $_SESSION["calendrier"]->getYear(); ?>>
@@ -50,13 +67,14 @@
                     <?php
                     $case = 1;
                     $day = 1;
+                    $trainingSession = new TrainingSessions();
                     while ($day <=  $_SESSION["calendrier"]->getNbDayInMonth()) { ?>
                         <tr class="text-center">
                             <?php for ($i = 1; $i <= 7; $i++) { ?>
-                                <td class="<?= $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? '' : 'bg-secondary' ?>">
-                                    <?= $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? $day++ : '' ?>
+                                <?php $eventInDay =  $trainingSession->getEventInDay($day,  $_SESSION["calendrier"]->getMonthIndex(), $_SESSION["calendrier"]->getYear()) ?>
+                                <td class="<?= getCssForDayNotInCalendar($case, $day) . " " . getCssIfEventInDay($eventInDay)?>">
+                                    <?= printDayIfInCalendar($case,$day) ?>
                                 </td>
-
                             <?php
                                 $case++;
                             } ?>
