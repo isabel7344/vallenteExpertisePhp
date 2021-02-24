@@ -7,7 +7,9 @@ class TrainingSessions extends Database
     private $Name_training;
     private $START_DATE_TRAINING;
     private $End_Date_training;
-    private $Number_of_places_training;
+    private $NUMBER_OF_PLACES_TRAINING;
+    private $NUMBER_PLACES_TAKEN;
+
     /**
      * Get the value of id
      */
@@ -87,23 +89,41 @@ class TrainingSessions extends Database
 
         return $this;
     }
-
     /**
-     * Get the value of Number_of_places_training
-     */
-    public function getNumber_of_places_training()
+     * Get the value of NUMBER_OF_PLACES_TRAINING
+     */ 
+    public function getNUMBER_OF_PLACES_TRAINING()
     {
-        return $this->Number_of_places_training;
+        return $this->NUMBER_OF_PLACES_TRAINING;
     }
 
     /**
-     * Set the value of Number_of_places_training
+     * Set the value of NUMBER_OF_PLACES_TRAINING
      *
      * @return  self
-     */
-    public function setNumber_of_places_training($Number_of_places_training)
+     */ 
+    public function setNUMBER_OF_PLACES_TRAINING($NUMBER_OF_PLACES_TRAINING)
     {
-        $this->Number_of_places_training = $Number_of_places_training;
+        $this->NUMBER_OF_PLACES_TRAINING = $NUMBER_OF_PLACES_TRAINING;
+
+        return $this;
+    }
+    /**
+     * Get the value of NUMBER_PLACES_TAKEN
+     */ 
+    public function getNUMBER_PLACES_TAKEN()
+    {
+        return $this->NUMBER_PLACES_TAKEN;
+    }
+
+    /**
+     * Set the value of NUMBER_PLACES_TAKEN
+     *
+     * @return  self
+     */ 
+    public function setNUMBER_PLACES_TAKEN($NUMBER_PLACES_TAKEN)
+    {
+        $this->NUMBER_PLACES_TAKEN = $NUMBER_PLACES_TAKEN;
 
         return $this;
     }
@@ -117,14 +137,14 @@ class TrainingSessions extends Database
      */
     public function getEventInDay($day, $month, $year)
     {
-        $month += 1; // car dnas le tableau on commence a 0
+        $month += 1; // car dans le tableau on commence a 0
         $strDate = strval($year) . "-" . str_pad(strval($month), 2, "0", STR_PAD_LEFT) . "-" .  str_pad(strval($day), 2, "0", STR_PAD_LEFT);
         
-        $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`
+        $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN`
         FROM `training_sessions` WHERE :date BETWEEN `START_DATE_TRAINING` AND `END_DATE_TRAINING`";
         $buildQuery = parent::getDb()->prepare($query);
-        $buildQuery->bindValue("date", $strDate); // TODO mettre varchar
+        $buildQuery->bindValue("date", $strDate,PDO::PARAM_STR); 
         $buildQuery->execute();
         return $buildQuery->fetch(PDO::FETCH_ASSOC);
-    }
+    }   
 }

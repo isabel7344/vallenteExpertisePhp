@@ -130,7 +130,10 @@ class CalendrierSession
     {
         return $this->firstDayInMonth;
     }
-
+/**
+ * function qui permet d'afficher l'index du mois 
+ * 
+ */
     function getMonthIndex()
     {
         return $this->currentMonthIndex;

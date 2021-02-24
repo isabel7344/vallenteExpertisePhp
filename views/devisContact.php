@@ -1,3 +1,7 @@
+<?php 
+require("../controllers/devisContactController.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,39 +21,52 @@
     <?php include '../commons/nav.php' ?>
     <div id="services" class="col-xl-8 col-sm-11 bg-white text-center mt-3 py-2 mx-auto rounded ">
         <img class="imageFond " src="../assets/img/abidjan-ivory-coast.jpg" alt="Abidjan">
-        <h1 class="title">Vallente Expertise 181</h1>
+        <h1 class="titleDevis">Vallente Expertise 181</h1>
         <h2 class="slogan">LA PREVENTION, C’EST NOTRE METIER!</h2>
         <div class="container px-lg-5">
             <div class="row mx-lg-n5">
                 <div class="col py-3 px-lg-5 border bg-light">
-                    <form class="col-10 m-auto">
+                    <form class="col-10 m-auto"action="devisContact.php" method="post">
                         <h4 class="text-center pt-5" id="contact">Demandez un devis</h4>
                         <div class="form-group pt-5">
-                            <label for="makingcontact" class="font-weight-bold">Nom</label>
-                            <input type="name" class="form-control contactcolor" id="makingcontact" placeholder=" Doe">
+                            <label for="lastName" class="font-weight-bold">Nom</label>
+                            <input type="text" class="form-control contactcolor" id="lastName" name="lastName" value="<?= isset($_POST['lastName']) ? $_POST['lastName'] : '' ?>" placeholder=" Durand ">
+                            <p class="displayMessage">
+                            <?= isset($messageError['lastName']) ? $messageError['lastName'] : '' ?><?= isset($messageSuccess['lastName']) ? $messageSuccess['lastName'] : '' ?>
+                            </p>
                         </div>
                         <div class="form-group">
-                            <label for="makingcontact" class="font-weight-bold">Prénom</label>
-                            <input type="name" class="form-control contactcolor" id="makingcontact" placeholder="John">
+                            <label for="firstName" class="font-weight-bold">Prénom</label>
+                            <input type="text" class="form-control contactcolor" id="firstName" name="firstName" value="<?= isset($_POST['firstName']) ? $_POST['firstName'] : '' ?>" placeholder="John">
+                            <p class="displayMessage">
+                            <?= isset($messageError['firstName']) ? $messageError['firstName'] : '' ?><?= isset($messageSuccess['firstName']) ? $messageSuccess['firstName'] : '' ?>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label for="mail" class="font-weight-bold">Adresse mail</label>
-                            <input type="name" class="form-control contactcolor" id="mail" placeholder="johndoe@gmail.com">
+                            <input type="text" class="form-control contactcolor" id="mail" name="mail"value="<?= (isset($_POST['mail'])) ? $_POST['mail'] : '' ?>"  placeholder="johndurand@gmail.com">
+                            <p class="displayMessage">
+                            <?= isset($messageError['mail']) ? $messageError['mail'] : '' ?><?= isset($messageSuccess['mail']) ? $messageSuccess['mail'] : '' ?>
+                            </p>
                         </div>
                         <div class="form-group">
-                            <label for="phone" class="font-weight-bold">Téléphone</label>
-                            <input type="name" class="form-control contactcolor " id="phone" placeholder="06 01 02 03 04">
+                            <label for="phoneNumber" class="font-weight-bold">Téléphone</label>
+                            <input type="text" class="form-control contactcolor " id="phoneNumber" name="phoneNumber" value="<?= (isset($_POST[''])) ? $_POST['phoneNumber'] : '' ?>" placeholder="06 01 02 03 04">
+                            <p class="displayMessage">
+                            <?= isset($messageError['phoneNumber']) ? $messageError['phoneNumber'] : '' ?><?= isset($messageSuccess['phoneNumber']) ? $messageSuccess['phoneNumber'] : '' ?>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label for="message" class="font-weight-bold">Message</label>
-                            <input type="name" class="form-control contactcolor" id="message" placeholder="Message">
+                            <textarea type="text" class="form-control contactcolor" id="message" placeholder="Message"></textarea>
                         </div>
+                        <input class="btn btn-dark text-center" name="submit" type="submit" value="Envoyer">
                         <!-- Button trigger modal -->
-                        <div class="text-center mt-5 mb-4"><button type="button" class="btn btn-dark text-center" data-toggle="modal" data-target="#exampleModal">
+                        <!-- <div class="text-center mt-5 mb-4"><button type="button" class="btn btn-dark text-center" data-toggle="modal" data-target="#exampleModal">
                                 Envoyer
-                            </button>
+                            </button> -->
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content opinion">
                                         <div class="modal-header">
@@ -62,7 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>

@@ -1,19 +1,45 @@
 <?php
     require_once("../controllers/calendrierDispoController.php");
     require("../modeles/training_sessions.php");
+    /*
+    ** fonction qui change les sessions dont il n'y a pas plus de place en rouge et vert libre 
+    */
     function getCssIfEventInDay($eventInDay) {
         if (empty($eventInDay)) {
             return "";
-        } else if ($eventInDay['place_prise'] >= $eventInDay['place_dispo']) {
+        } else if ($eventInDay['NUMBER_PLACES_TAKEN'] >= $eventInDay['NUMBER_OF_PLACES_TRAINING']) {
             return 'bg-danger';
         } else {
             return 'bg-success';
         }
     }
+    /*
+    ** fonction qui change les sessions dont il n'y a pas plus de place en rouge et vert libre pour le boutton 
+    */
+    function getCssIfEventInDayButton($eventInDay) {
+        if (empty($eventInDay)) {
+            return "";
+        } else if ($eventInDay['NUMBER_PLACES_TAKEN'] >= $eventInDay['NUMBER_OF_PLACES_TRAINING']) {
+            return 'btn btn-danger';
+        } else {
+            return 'btn btn-success';
+        }
+    }
+    /*
+    ** fonction qui met les cases en gris  qui ne contiennent pas de  jours dans le mois 
+    */
     function getCssForDayNotInCalendar($case, $day) {
         return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? '' : 'bg-secondary';
     }
-
+    /*
+    ** fonction qui met les cases en gris quand appui sur le bouton
+    */
+    function getCssForDayNotInCalendarbutton($case, $day) {
+        return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? '' : 'btn btn-secondary';
+    }
+    /*
+    ** fonction qui affiche le calendrier ....
+    */
     function printDayIfInCalendar ($case, &$day){
         return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? $day++ : '';
     }
@@ -71,13 +97,29 @@
                     while ($day <=  $_SESSION["calendrier"]->getNbDayInMonth()) { ?>
                         <tr class="text-center">
                             <?php for ($i = 1; $i <= 7; $i++) { ?>
-                                <?php $eventInDay =  $trainingSession->getEventInDay($day,  $_SESSION["calendrier"]->getMonthIndex(), $_SESSION["calendrier"]->getYear()) ?>
-                                <td class="<?= getCssForDayNotInCalendar($case, $day) . " " . getCssIfEventInDay($eventInDay)?>">
+                                <?php $eventInDay =  $trainingSession->getEventInDay($day,  $_SESSION["calendrier"]->getMonthIndex(), $_SESSION["calendrier"]->getYear()) ?> 
+                                <td  class="<?= getCssForDayNotInCalendar($case, $day) . " " . getCssIfEventInDay($eventInDay)?>">
                                     <?= printDayIfInCalendar($case,$day) ?>
+                                    <button type="button" data-toggle="myModal"
+                                                    data-target="myModal" class="<?= getCssForDayNotInCalendarbutton($case, $day) . " " . getCssIfEventInDayButton($eventInDay)?>">                                                                                                            
+                                                </button>
                                 </td>
                             <?php
                                 $case++;
                             } ?>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    detaille
+                                </div>
+                                </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
                         </tr>
                     <?php } ?>
                 </tbody>

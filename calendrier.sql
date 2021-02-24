@@ -5,29 +5,16 @@ CREATE DATABASE IF NOT EXISTS `vallente expertise` CHARACTER SET 'utf8';
 USE `vallente expertise`;
 
 #------------------------------------------------------------
-# Table: sessions
+# Table: TRAINING_SESSIONS
 #------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `session`(
-        `id`        INT (11) AUTO_INCREMENT  NOT NULL ,
-        `date`  VARCHAR (25) NOT NULL ,
-        `firstname` VARCHAR (25) NOT NULL ,
-        `birthdate` DATE NOT NULL ,
-        `phone`     VARCHAR (25) ,
-        `mail`      VARCHAR (100) NOT NULL ,
-        PRIMARY KEY (`id`)
+CREATE TABLE TRAINING_SESSIONS(
+        ID                        Int  Auto_increment  NOT NULL ,
+        NAME_TRAINING             Varchar (50) NOT NULL ,
+        START_DATE_TRAINING       Date NOT NULL ,
+        END_DATE_TRAINING         Date NOT NULL ,
+        NUMBER_OF_PLACES_TRAINING Int NOT NULL ,
+        NUMBER_PLACES_TAKEN       Int NOT NULL
+	,CONSTRAINT TRAINING_SESSIONS_PK PRIMARY KEY (ID)
 )ENGINE=InnoDB;
 
-
-#------------------------------------------------------------
-# Table: appointments
-#------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `appointments`(
-        `id`         INT (11) AUTO_INCREMENT  NOT NULL ,
-        `dateHour`   DATETIME NOT NULL ,
-        `idPatients` INT (11) NOT NULL ,
-        PRIMARY KEY (`id`)
-)ENGINE=InnoDB;
-
-ALTER TABLE `appointments` ADD CONSTRAINT FK_appointments_id_patients FOREIGN KEY (`idPatients`) REFERENCES `patients`(`id`);
