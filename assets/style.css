@@ -123,6 +123,26 @@ font-size: .8rem;
     margin-bottom: 0;
 }
 
+.imageFond {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-image: url("../assets/img/abidjan-ivory-coast.jpg");
+    color: white;
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    align-content: flex-end;
+    justify-content: flex-end;
+}
+
+.imageFond div {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+
+
+
 .formValid {
     color: #00E8CC !important;
 }
