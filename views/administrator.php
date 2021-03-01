@@ -1,41 +1,20 @@
 <?php
-require("../controllers/devisContactController.php");
+require("../controllers/administratorController.php");
+require("../modeles/administrator_user.php");
+// require("../views/calendrier.php");
+
 ?>
-<!-- <?php
-if(isset($_POST['mailform']))
-{
-$header="MIME-Version: 1.0\r\n";			
-$header.='From:"isabel FOFANA" <vallenteexpertise181@gmail.com>'."\n";
-$header.='Content-Type:text/html; charset="uft-8"'."\n";
-$header.='Content-Transfer-Encoding: 8bit';
-
-$message='
-<html>
-	<body>
-		<div align="center">
-			
-			J\'ai envoyé ce mail avec PHP !
-			
-			"isabel FOFANA" <vallenteexpertise181@gmail.com>
-		</div>
-	</body>
-</html>
-';
-
-mail("vallenteExxpertise181@gmail.com", "Salut tout le monde !", $message, $header);
-}
-?> -->
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="icon" href="../assets/img/logoFondBlanc.png">
     <link rel="stylesheet" href="../assets/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Vallente EXpertise</title>
+    <title>Connexion</title>
 </head>
 
 <body>
@@ -51,7 +30,7 @@ mail("vallenteExxpertise181@gmail.com", "Salut tout le monde !", $message, $head
             <div class="row mx-lg-n5">
                 <div class="col py-3 px-lg-5 border bg-light">
                     <form class="col-10 m-auto" action="devisContact.php" method="post">
-                        <h4 class="text-center pt-5" id="contact">Demandez un devis</h4>
+                        <h4 class="text-center pt-5" id="contact">SE CONNECTER</h4>
                         <div class="form-group pt-5">
                             <label for="lastName" class="font-weight-bold">Nom</label>
                             <input type="text" class="form-control contactcolor" id="lastName" name="lastName" value="<?= isset($_POST['lastName']) ? $_POST['lastName'] : '' ?>" placeholder=" Durand ">
@@ -74,24 +53,20 @@ mail("vallenteExxpertise181@gmail.com", "Salut tout le monde !", $message, $head
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="phoneNumber" class="font-weight-bold">Téléphone</label>
-                            <input type="text" class="form-control contactcolor " id="phoneNumber" name="phoneNumber" value="<?= (isset($_POST[''])) ? $_POST['phoneNumber'] : '' ?>" placeholder="06 01 02 03 04">
+                            <label for="password" class="font-weight-bold">PASSWORD</label>
+                            <input type="text" class="form-control contactcolor " id="passeword" name="password" value="<?= (isset($_POST[''])) ? $_POST['password'] : '' ?>" >
                             <p class="displayMessage">
-                                <?= isset($messageError['phoneNumber']) ? $messageError['phoneNumber'] : '' ?><?= isset($messageSuccess['phoneNumber']) ? $messageSuccess['phoneNumber'] : '' ?>
+                                <?= isset($messageError['password']) ? $messageError['password'] : '' ?><?= isset($messageSuccess['password']) ? $messageSuccess['password'] : '' ?>
                             </p>
                         </div>
-                        <div class="form-group">
-                            <label for="message" class="font-weight-bold">Message</label>
-                            <textarea type="text" class="form-control contactcolor" id="message" placeholder="Message"></textarea>
-                        </div>
-                        <input class="btn btn-dark text-center" name="mailform" type="submit" value="Envoyer">
+                        <input class="btn btn-dark text-center" name="connecUser" type="submit" value="CONNEXION">
                     </form>
                 </div>
             </div>
-            <div class="container-fluid pt-2 bg-dark">
+            <!-- <div class="container-fluid pt-2 bg-dark">
                 <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
                 <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
-            </div>
+            </div> -->
         </div>
     </div>
     <?php include '../commons/footer.php' ?>
@@ -105,6 +80,7 @@ mail("vallenteExxpertise181@gmail.com", "Salut tout le monde !", $message, $head
     <script>
         AOS.init();
     </script>
+ 
+    
 </body>
-
 </html>

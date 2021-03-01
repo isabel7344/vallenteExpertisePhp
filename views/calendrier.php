@@ -50,15 +50,13 @@ function printDayIfInCalendar($case, &$day)
 {
     return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? $day++ : '';
 }
-?>
 
-<?php function showButton($case, &$day, $eventInDay)
+function showButton($case, &$day, $eventInDay)
 {
     $printingDay = printDayIfInCalendar($case, $day);
     if ($eventInDay) {
         $modalID = "modal" . $case;
 ?>
-
         <button type="button" data-toggle="modal" data-target="<?php echo "#" . $modalID ?>" class="<?= getCssForDayNotInCalendarbutton($case, $day) . " " . getCssIfEventInDayButton($eventInDay) ?>">
             <?php echo $printingDay ?>
         </button>
@@ -67,26 +65,33 @@ function printDayIfInCalendar($case, &$day)
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Session de Formation</h4>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer
+                        </button>
                     </div>
                     <div class="modal-body">
                     <?php
-                    if(!empty($getEventInDay)) {
-                    foreach ($getEventInDay as $key => $value) {
-                    ?>
-                    <p>Nom de la Formation <?= strtoupper($value["Name_training"]) ?></P>
-                    <p>Date de début de  formation <?= $value["START_DATE_TRAINING"] ?></p>
-                    <p> Date de fin de   formation <?= $value["End_Date_training"] ?></p>
-                    <p> Nombre de places total <?= $value["NUMBER_OF_PLACES_TRAINING"] ?></p>
-                    <p> Nombre de places prises <?= $value["NUMBER_PLACES_TAKEN"] ?></p>
-                    }<?php
-                    }else {
-                        echo "$printingDay";
-                    }
-                    } ?>
+                    if(!empty($TrainingSessions)) {
+                        foreach ($TrainingSessions as $value => $value) {
+                        ?>
+                        <p>Nom de la Formation <?= strtoupper($value["Name_training"]) ?></P>
+                        <p>Date de début de  formation <?= $value["START_DATE_TRAINING"] ?></p>
+                        <p> Date de fin de   formation <?= $value["End_Date_training"] ?></p>
+                        <p> Nombre de places total <?= $value["NUMBER_OF_PLACES_TRAINING"] ?></p>
+                        <p> Nombre de places prises <?= $value["NUMBER_PLACES_TAKEN"] ?></p>
+                        <?php
+                        }
+                        }else {
+                            echo $printingDay;
+                        }
+                        }
+                    ?>  
+                    </div>           
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        <?php 
+}
+?>
 
 
 <!DOCTYPE html>
@@ -152,12 +157,13 @@ function printDayIfInCalendar($case, &$day)
             </table>
         </div>
     </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-</script>
-<script src="https://kit.fontawesome.com/e2a465b2f1.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+            </script>
+            <script src="https://kit.fontawesome.com/e2a465b2f1.js" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  
+            </body>
+
 
 </html>
