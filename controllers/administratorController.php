@@ -16,57 +16,73 @@
 <body>
 
 <?php
+require "../Modeles/Database.php";
+require "../Modeles/administrator_user.php";
+
+
 session_start();
 
 if (isset($_POST['connectUser'])) {
 $messageError = [];
-$messageSuccess = [];
+$arrayParameters = [];
 
-$regexName = '/^\D{2,19}$/';
+$regexName = "/^[a-zA-Zéèàëïä -]+$/";
 $regexPassword = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$/";
+$regexUsername = "/^[a-zA-Zéèàëïä -]{3,20}$/";
 
 
-if (isset($_POST['lastName'])) {
-    if (empty($_POST['lastName'])) {
-        $messageError['lastName'] = 'Le champs est vide';
-    } elseif (!preg_match($regexName, $_POST['lastName'])) {
-        $messageError['lastName'] = 'Le nom n\'est pas valide';
-    } elseif (strlen($_POST['lastName']) < 2 || strlen($_POST['lastName']) > 50) {
-        $messageError['lastName'] = 'Le nom doit contenir 2 à 50 caractères';
+
+if(preg_match($regexName, $_POST["firstname"])) {
+    $securedFirstname = htmlspecialchars($_POST["firstname"]);
+    $arrayParameters["firstname"] = $securedFirstname;
+} else {
+    $messageError["firstname"] = "Veuillez renseigner une valeur valide pour ce champ.";
+}
+if(preg_match($regexName, $_POST["lastname"])) {
+    $securedLastname = htmlspecialchars($_POST["lastname"]);
+    $arrayParameters["lastname"] = $securedLastname;
+} else {
+    $messageError["lastname"] = "Veuillez renseigner une valeur valide pour ce champ.";
+}
+if(preg_match($regexUsername, $_POST["username"])) {
+    $securedUsername = htmlspecialchars($_POST["username"]);
+    $arrayParameters["username"] = $securedUsername;
+} else {
+    $messageError["username"] = "Veuillez renseigner une valeur valide pour ce champ.";
+}
+if(filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
+    $securedMail = htmlspecialchars($_POST["mail"]);
+    $arrayParameters["mail"] = $securedMail;
+} else {
+    $messageError["mail"] = "Veuillez renseigner une valeur valide pour ce champ.";
+}
+
+if($_POST["password"] === $_POST["confirmPassword"]) {
+    if(preg_match($regexPassword, $_POST["password"])) {
+        $securedPassword = password_hash($_POST["password"], PASSWORD_BCRYPT);
+        $arrayParameters["password"] = $securedPassword;
     } else {
-        $messageSuccess['lastName'] = '<i class="fas fa-check formValid"></i>';
+        $messageError["password"] = "Veuillez renseigner un mot de passe contenant au moins : \n
+        - une lettre majuscule \n
+        - une lettre minuscule \n
+        - un chiffre \n
+        - un caractère spécial.";
     }
+} else {
+    $messageError["password"] = "Les 2 mots de passes ne sont pas identiques.";
+} 
+if(empty($arrayErrors)) {
+    $User = new Administrator_User ();
+    if($User->connectUser($arrayParameters)) {
+        $_SESSION["message"] = "Vous êtes bien inscrit sur le site, essayez de vous connecter !";
+        header("Location: ../views/administratorModif.php");
+    } else {
+        $message = "Il y a eu une erreur lors de l'inscription.";
+    }
+} else {
+    $message = "Vérifiez les erreurs du formulaire.";
 }
 
-if (isset($_POST['firstName'])) {
-    if (empty($_POST['firstName'])) {
-        $messageError['firstName'] = 'Le champs est vide';
-    } elseif (!preg_match($regexName, $_POST['firstName'])) {
-        $messageError['firstName'] = 'Le nom n\'est pas valide';
-    } elseif (strlen($_POST['firstName']) < 2 || strlen($_POST['firstName']) > 50) {
-        $messageError['firstName'] = 'Le nom doit contenir de 2 à 50 caractères';
-    } else {
-        $messageSuccess['firstName'] = '<i class="fas fa-check formValid"></i>';
-    }
-}
-if(preg_match($regexPassword, $_POST["password"])) {
-    $securedPassword = $_POST["password"];
-} else{
-    $messageErrors["password"] = "Veuillez renseigner une valeur valide pour ce champ.";
-// } else{
-//     $messageSuccess['firstName'] = '<i class="fas fa-check formValid"></i>';
-// }
-
-if (isset($_POST['mail'])) {
-    if (empty($_POST['mail'])) {
-        $messageError['mail'] = 'Le champs est vide';
-    } elseif (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-        $messageError['mail'] = 'L\'adresse mail n\'est pas valide';
-    } else {
-        $messageSuccess['mail'] = '<i class="fas fa-check formValid"></i>';
-    }
-}
-}
 }
 ?>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

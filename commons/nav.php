@@ -40,7 +40,7 @@
                 </div>
                 <div class="dropdown">
                     <a class=" btn text-navbar m-2 rounded bg-light" href="administrator.php" id="navBarAdministrator">
-                    <img  width="30" height="30" src="../assets/img/user_man_setting_21947.png" alt="Connexion admin">
+                    <img  width="20" height="20" src="../assets/img/user_man_setting_21947.png" alt="Connexion admin">
                     </a>
                 </div>
         </div>

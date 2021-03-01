@@ -1,7 +1,6 @@
 <?php
 require("../controllers/administratorController.php");
-require("../modeles/administrator_user.php");
-// require("../views/calendrier.php");
+
 
 ?>
 <!DOCTYPE html>
@@ -29,21 +28,28 @@ require("../modeles/administrator_user.php");
         <div class="container px-lg-5">
             <div class="row mx-lg-n5">
                 <div class="col py-3 px-lg-5 border bg-light">
-                    <form class="col-10 m-auto" action="devisContact.php" method="post">
+                    <form class="col-10 m-auto" action="administrator.php" method="post">
                         <h4 class="text-center pt-5" id="contact">SE CONNECTER</h4>
                         <div class="form-group pt-5">
-                            <label for="lastName" class="font-weight-bold">Nom</label>
-                            <input type="text" class="form-control contactcolor" id="lastName" name="lastName" value="<?= isset($_POST['lastName']) ? $_POST['lastName'] : '' ?>" placeholder=" Durand ">
+                        <?= isset($message) ? "<p style=\"color:white; background-color:red;\">" . $message . "</p>" : "" ?>
+                            <label for="lastname" class="font-weight-bold">Nom</label>
+                            <input type="text" class="form-control contactcolor" id="lastname" name="lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>" placeholder=" Durand ">
                             <p class="displayMessage">
-                                <?= isset($messageError['lastName']) ? $messageError['lastName'] : '' ?><?= isset($messageSuccess['lastName']) ? $messageSuccess['lastName'] : '' ?>
+                            <?= isset($messageError["lastName"]) ? "<p style=\"color:white; background-color:red;\">" . $messageError["Lastname"] . "</p>" : "" ?>
+                                <!-- <?= isset($messageError['lastName']) ? $messageError['lastName'] : '' ?><?= isset($messageSuccess['lastName']) ? $messageSuccess['lastName'] : '' ?> -->
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="firstName" class="font-weight-bold">Prénom</label>
-                            <input type="text" class="form-control contactcolor" id="firstName" name="firstName" value="<?= isset($_POST['firstName']) ? $_POST['firstName'] : '' ?>" placeholder="John">
+                            <label for="firstname" class="font-weight-bold">Prénom</label>
+                            <input type="text" class="form-control contactcolor" id="firstname" name="firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>" placeholder="John">
                             <p class="displayMessage">
-                                <?= isset($messageError['firstName']) ? $messageError['firstName'] : '' ?><?= isset($messageSuccess['firstName']) ? $messageSuccess['firstName'] : '' ?>
+                                <?= isset($messageError['firstame']) ? $messageError['firstname'] : '' ?><?= isset($messageSuccess['firstname']) ? $messageSuccess['firstname'] : '' ?>
                             </p>
+                        </div>
+                        <div class="form-group" >
+                            <label for="username"class="font-weight-bold">Nom d'utilisateur : </label>
+                            <input type="text" class="form-control contactcolor" name="username" required <?= isset($_POST["username"]) ? "value=\"" . $_POST['username'] . "\"" : "" ?>>
+                            <?= isset($arrayErrors["username"]) ? "<p style=\"color:white; background-color:red;\">" . $arrayErrors["username"] . "</p>" : "" ?>
                         </div>
                         <div class="form-group">
                             <label for="mail" class="font-weight-bold">Adresse mail</label>
@@ -53,20 +59,23 @@ require("../modeles/administrator_user.php");
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="password" class="font-weight-bold">PASSWORD</label>
-                            <input type="text" class="form-control contactcolor " id="passeword" name="password" value="<?= (isset($_POST[''])) ? $_POST['password'] : '' ?>" >
+                            <label for="password" class="font-weight-bold">Mot de passe</label>
+                            <input type="password" class="form-control contactcolor " id="passeword" name="password" required value="<?= (isset($_POST[''])) ? $_POST['password'] : '' ?>" >
                             <p class="displayMessage">
                                 <?= isset($messageError['password']) ? $messageError['password'] : '' ?><?= isset($messageSuccess['password']) ? $messageSuccess['password'] : '' ?>
                             </p>
                         </div>
-                        <input class="btn btn-dark text-center" name="connecUser" type="submit" value="CONNEXION">
+                        <div class="form-group">
+                            <label for="confirmPassword" class="font-weight-bold">Confirmez mot de passe</label>
+                            <input type="password" class="form-control contactcolor " id="confirmPassword" name="confirmPassword" required value="<?= (isset($_POST[''])) ? $_POST['password'] : '' ?>" >
+                            <p class="displayMessage">
+                                <?= isset($messageError['password']) ? $messageError['password'] : '' ?><?= isset($messageSuccess['password']) ? $messageSuccess['password'] : '' ?>
+                            </p>
+                        </div>
+                        <input class="btn btn-dark text-center" name="connectUser" type="submit" value="CONNEXION">
                     </form>
                 </div>
             </div>
-            <!-- <div class="container-fluid pt-2 bg-dark">
-                <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
-                <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
-            </div> -->
         </div>
     </div>
     <?php include '../commons/footer.php' ?>
@@ -80,7 +89,6 @@ require("../modeles/administrator_user.php");
     <script>
         AOS.init();
     </script>
- 
     
 </body>
 </html>

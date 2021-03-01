@@ -17,8 +17,6 @@
 
 
 <?php
-
-
 if (isset($_POST['submit'])) {
 $messageError = [];
 $messageSuccess = [];
@@ -38,7 +36,6 @@ if (isset($_POST['lastName'])) {
         $messageSuccess['lastName'] = '<i class="fas fa-check formValid"></i>';
     }
 }
-
 if (isset($_POST['firstName'])) {
     if (empty($_POST['firstName'])) {
         $messageError['firstName'] = 'Le champs est vide';
@@ -59,8 +56,6 @@ if (isset($_POST['mail'])) {
         $messageSuccess['mail'] = '<i class="fas fa-check formValid"></i>';
     }
 }
-
-
     if (isset($_POST['phoneNumber'])) {
         if (empty($_POST['phoneNumber'])) {
             $messageError['phoneNumber'] = 'Le champs est vide';
@@ -76,11 +71,10 @@ if (isset($_POST['mail'])) {
         $secureMail = htmlspecialchars($_POST['mail']);
         $securePhoneNumber = htmlspecialchars($_POST['phoneNumber']);
     }
-    
-
 }
 ?>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
         </script>

@@ -1,30 +1,7 @@
 <?php
 require("../controllers/devisContactController.php");
 ?>
-<!-- <?php
-if(isset($_POST['mailform']))
-{
-$header="MIME-Version: 1.0\r\n";			
-$header.='From:"isabel FOFANA" <vallenteexpertise181@gmail.com>'."\n";
-$header.='Content-Type:text/html; charset="uft-8"'."\n";
-$header.='Content-Transfer-Encoding: 8bit';
 
-$message='
-<html>
-	<body>
-		<div align="center">
-			
-			J\'ai envoyé ce mail avec PHP !
-			
-			"isabel FOFANA" <vallenteexpertise181@gmail.com>
-		</div>
-	</body>
-</html>
-';
-
-mail("vallenteExxpertise181@gmail.com", "Salut tout le monde !", $message, $header);
-}
-?> -->
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -33,7 +10,7 @@ mail("vallenteExxpertise181@gmail.com", "Salut tout le monde !", $message, $head
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="icon" href="../assets/img/logoFondBlanc.png">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/s">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Vallente EXpertise</title>
 </head>
@@ -84,7 +61,7 @@ mail("vallenteExxpertise181@gmail.com", "Salut tout le monde !", $message, $head
                             <label for="message" class="font-weight-bold">Message</label>
                             <textarea type="text" class="form-control contactcolor" id="message" placeholder="Message"></textarea>
                         </div>
-                        <input class="btn btn-dark text-center" name="mailform" type="submit" value="Envoyer">
+                        <input class="btn btn-dark text-center" name="submit" type="submit" value="Envoyer">
                     </form>
                 </div>
             </div>
