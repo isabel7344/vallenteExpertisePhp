@@ -18,6 +18,7 @@
 <?php
 require "../Modeles/Database.php";
 require "../Modeles/administrator_user.php";
+require "../modeles/users_role.php";
 
 
 session_start();
@@ -71,16 +72,25 @@ if($_POST["password"] === $_POST["confirmPassword"]) {
 } else {
     $messageError["password"] = "Les 2 mots de passes ne sont pas identiques.";
 } 
-if(empty($arrayErrors)) {
-    $User = new Administrator_User ();
-    if($User->connectUser($arrayParameters)) {
-        $_SESSION["message"] = "Vous êtes bien inscrit sur le site, essayez de vous connecter !";
-        header("Location: ../views/administratorModif.php");
-    } else {
-        $message = "Il y a eu une erreur lors de l'inscription.";
+
+$UserRole = new Users_role();
+$resultQuery = $UserRole->verifyUserPresence($securedUsername);
+
+if(!empty($resultQuery)) {
+    if(password_verify($securedPassword, $resultQuery["Administrator_User_password"])) {
+        $Administrator_User = [];
+        $Administrator_User["id"] = $resultQuery["Administrator_User_id"];
+        $Administrator_User["firstname"] = $resultQuery["Administrator_User_firstname"];
+        $Administrator_User["lastname"] = $resultQuery["Administrator_User_lastname"];
+        $Administrator_User["username"] = $resultQuery["Administrator_User_Username"];
+        $Administrator_User["mail"] = $resultQuery["Administrator_User_mail"];
+        $Administrator_User["password"] = $resultQuery["Administrator_User_password"];
+        $Administrator_User["role"] = $resultQuery["users_role_role"];
+        $_SESSION["Administrator_User"] = $Administrator_User;
+    
     }
 } else {
-    $message = "Vérifiez les erreurs du formulaire.";
+    $message = "Vérifiez vos informations de connexion.";
 }
 
 }

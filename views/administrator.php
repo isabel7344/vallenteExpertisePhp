@@ -28,7 +28,7 @@ require("../controllers/administratorController.php");
         <div class="container px-lg-5">
             <div class="row mx-lg-n5">
                 <div class="col py-3 px-lg-5 border bg-light">
-                    <form class="col-10 m-auto" action="administrator.php" method="post">
+                    <form class="col-10 m-auto" action="administratorModif.php" method="post">
                         <h4 class="text-center pt-5" id="contact">SE CONNECTER</h4>
                         <div class="form-group pt-5">
                         <?= isset($message) ? "<p style=\"color:white; background-color:red;\">" . $message . "</p>" : "" ?>
@@ -72,7 +72,9 @@ require("../controllers/administratorController.php");
                                 <?= isset($messageError['password']) ? $messageError['password'] : '' ?><?= isset($messageSuccess['password']) ? $messageSuccess['password'] : '' ?>
                             </p>
                         </div>
-                        <input class="btn btn-dark text-center" name="connectUser" type="submit" value="CONNEXION">
+                        <input class="btn btn-dark text-center" name="connectUser" type="submit" value="CONNEXION"
+                        >
+                        <!-- <?php var_dump($_SESSION); ?> -->
                     </form>
                 </div>
             </div>

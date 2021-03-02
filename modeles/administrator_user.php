@@ -8,6 +8,7 @@ class Administrator_User extends Database
     private $Administrator_User_Username;
     private $Administrator_User_mail;
     private $Administrator_User_password;
+    private $users_role;
     
 
     /**
@@ -128,18 +129,27 @@ class Administrator_User extends Database
 
         return $this;
     }
+    /**
+     * Get the value of users_role
+     */ 
+    public function getUsers_role()
+    {
+        return $this->users_role;
+    }
+
+    /**
+     * Set the value of users_role
+     *
+     * @return  self
+     */ 
+    public function setUsers_role($users_role)
+    {
+        $this->users_role = $users_role;
+
+        return $this;
+    }
     public function __construct()
     {
         parent::__construct();
     }
-    public function connectUser($arrayParameters) {
-        $query = "INSERT INTO `Administrator_User` (`Administrator_User_lastname`, `Administrator_User_firstname`,`Administrator_User_Username`, `Administrator_User_mail`, `Administrator_User_password`) VALUES (:firstname, :lastname, :username, :password, :mail);";
-        $buildQuery = parent::getDb()->prepare($query);
-        $buildQuery->bindValue("firstname", $arrayParameters["firstname"], PDO::PARAM_STR);
-        $buildQuery->bindValue("lastname", $arrayParameters["lastname"], PDO::PARAM_STR);
-        $buildQuery->bindValue("username", $arrayParameters["username"], PDO::PARAM_STR);
-        $buildQuery->bindValue("password", $arrayParameters["password"], PDO::PARAM_STR);
-        $buildQuery->bindValue("mail", $arrayParameters["mail"], PDO::PARAM_STR);
-        return $buildQuery->execute();
-    }  
 }  
