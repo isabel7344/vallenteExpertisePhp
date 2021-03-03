@@ -2,7 +2,7 @@
 require_once("../controllers/calendrierDispoController.php");
 require("../modeles/training_sessions.php");
 /*
-    ** fonction qui change les sessions dont il n'y a pas plus de place en rouge et vert libre 
+    ** fonction qui change les sessions dont il n'y a pas plus de place en rouge et vert libre
     */
 function getCssIfEventInDay($eventInDay)
 {
@@ -15,22 +15,9 @@ function getCssIfEventInDay($eventInDay)
     }
 }
 
-/*
-    ** fonction qui change les sessions dont il n'y a pas plus de place en rouge et vert libre pour le boutton 
-    */
-function getCssIfEventInDayButton($eventInDay)
-{
-    if (empty($eventInDay)) {
-        return "";
-    } else if ($eventInDay['NUMBER_PLACES_TAKEN'] >= $eventInDay['NUMBER_OF_PLACES_TRAINING']) {
-        return 'btn btn-danger';
-    } else {
-        return 'btn btn-success';
-    }
-}
 
 /*
-    ** fonction qui met les cases en gris  qui ne contiennent pas de  jours dans le mois 
+    ** fonction qui met les cases en gris  qui ne contiennent pas de  jours dans le mois
     */
 function getCssForDayNotInCalendar($case, $day)
 {
@@ -57,10 +44,15 @@ function showButton($case, &$day, $eventInDay)
     if ($eventInDay) {
         $modalID = "modal" . $case;
 ?>
-        <button type="button" data-toggle="modal" data-target="<?php echo "#" . $modalID ?>" class="<?= getCssForDayNotInCalendarbutton($case, $day) . " " . getCssIfEventInDayButton($eventInDay) ?>">
+        <a data-toggle="modal" href="<?php echo "#" . $modalID ?>" class="<?= getCssForDayNotInCalendarbutton($case, $day) ?>" style="color: white">
             <?php echo $printingDay ?>
-        </button>
+        </a>
         <div class="modal fade" id="<?php echo $modalID ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo $modalID . "Label" ?>" aria-hidden="true">
+            <!-- if (user is connected && usr is admin ) {
+                include admin modal 
+            } else {
+                include modal normal
+            } -->
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -69,27 +61,20 @@ function showButton($case, &$day, $eventInDay)
                         </button>
                     </div>
                     <div class="modal-body">
-                    <?php
-                    if(!empty($TrainingSessions)) {
-                        foreach ($TrainingSessions as $value => $value) {
-                        ?>
-                        <p>Nom de la Formation <?= strtoupper($value["Name_training"]) ?></P>
-                        <p>Date de début de  formation <?= $value["START_DATE_TRAINING"] ?></p>
-                        <p> Date de fin de   formation <?= $value["End_Date_training"] ?></p>
-                        <p> Nombre de places total <?= $value["NUMBER_OF_PLACES_TRAINING"] ?></p>
-                        <p> Nombre de places prises <?= $value["NUMBER_PLACES_TAKEN"] ?></p>
-                        <?php
-                        }
-                        }else {
-                            echo $printingDay;
-                        }
-                        }
-                    ?>  
-                    </div>           
+                        <p>Nom de la Formation <?= strtoupper($eventInDay["NAME_TRAINING"]) ?></P>
+                        <p>Date de début de  formation <?= $eventInDay["START_DATE_TRAINING"] ?></p>
+                        <p> Date de fin de   formation <?= $eventInDay["END_DATE_TRAINING"] ?></p>
+                        <p> Nombre de places total <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] ?></p>
+                        <p> Nombre de places prises <?= $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
+                        <p> Nombre de places restantes <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] - $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
+                    </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        <?php 
+        <?php
+} else {
+    echo $printingDay;
+}
 }
 ?>
 
@@ -162,7 +147,7 @@ function showButton($case, &$day, $eventInDay)
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
             </script>
             <script src="https://kit.fontawesome.com/e2a465b2f1.js" crossorigin="anonymous"></script>
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             </body>
 
 
