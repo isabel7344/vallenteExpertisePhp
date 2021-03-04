@@ -147,11 +147,24 @@ class TrainingSessions extends Database
         $buildQuery->execute();
         return $buildQuery->fetch(PDO::FETCH_ASSOC);
     }
-
-
-
-
-    
+ /**
+     * Méthode qui permet de récupérer toutes les informations d'une session par son id
+     * 
+     * @param int
+     * @return array|boolean
+     */
+    public function getOneTrainingSessionById(int $id) {
+        $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN` FROM `training_sessions` WHERE `id` = :id;";
+        $buildQuery = parent::getDb()->prepare($query);
+        $buildQuery->bindValue("id", $id, PDO::PARAM_INT);
+        $buildQuery->execute();
+        $resultQuery = $buildQuery->fetch(PDO::FETCH_ASSOC);
+        if(!empty($resultQuery)) {
+            return $resultQuery;
+        } else {
+            return false;
+        }
+    }
     /**
      * Méthode qui permet de modifier une session de formation  existante
      * 

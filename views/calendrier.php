@@ -48,12 +48,12 @@ function showButton($case, &$day, $eventInDay)
             <?php echo $printingDay ?>
         </a>
         <div class="modal fade" id="<?php echo $modalID ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo $modalID . "Label" ?>" aria-hidden="true">
-            <!-- if (user is connected && usr is admin ) {
-                include admin modal 
+            
+            if ((isset($_POST['connectUser'])) && ($users_role ==  1)) {
+
+                <?php include 'modal.php' ?>
             } else {
-                include modal normal
-            } -->
-            <div class="modal-dialog" role="document">
+                <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Session de Formation</h4>
@@ -61,16 +61,18 @@ function showButton($case, &$day, $eventInDay)
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Nom de la Formation <?= strtoupper($eventInDay["NAME_TRAINING"]) ?></P>
-                        <p>Date de début de  formation <?= $eventInDay["START_DATE_TRAINING"] ?></p>
-                        <p> Date de fin de   formation <?= $eventInDay["END_DATE_TRAINING"] ?></p>
-                        <p> Nombre de places total <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] ?></p>
-                        <p> Nombre de places prises <?= $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
-                        <p> Nombre de places restantes <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] - $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
+                        <p class="text-modal">Nom de la Formation: <?= strtoupper($eventInDay["NAME_TRAINING"]) ?></P>
+                        <p class="text-modal">Date de début de  formation: <?= $eventInDay["START_DATE_TRAINING"] ?></p>
+                        <p class="text-modal" > Date de fin de   formation: <?= $eventInDay["END_DATE_TRAINING"] ?></p>
+                        <p class="text-modal" > Nombre de places total: <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] ?></p>
+                        <p class="text-modal"> Nombre de places prises:<?= $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
+                        <p class="text-modal
+                        " > Nombre de places restantes: <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] - $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+        </div><!-- /.modal --> 
+            }           
         <?php
 } else {
     echo $printingDay;
