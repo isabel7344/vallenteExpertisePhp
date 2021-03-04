@@ -5,7 +5,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer
                         </button>
                     </div>
-                    <!-- <form> --> pour le admin
+                    <form class="col-10 m-auto" action="modal.php" method="post">
                     <div class="modal-body">
                         <input>Nom de la Formation <?= strtoupper($eventInDay["NAME_TRAINING"]) ?></P>
                         <p>Date de début de  formation <?= $eventInDay["START_DATE_TRAINING"] ?></p>
@@ -16,3 +16,5 @@
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
+            <button type="submit" name="submitModifTrainingSessions" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Valider la modification</button>
+            </form>

@@ -26,9 +26,6 @@ require("../controllers/administratorController.php");
                 <h2 class="slogan">LA PREVENTION, C’EST NOTRE METIER!</h2>
             </div>
         </div>
-        <?php
- var_dump(password_verify($_POST["password"], $arrayParameters["password"]));
- ?> 
         <div class="container px-lg-5">
             <div class="row mx-lg-n5">
                 <div class="col py-3 px-lg-5 border bg-light">

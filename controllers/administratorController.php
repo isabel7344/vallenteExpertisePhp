@@ -50,13 +50,11 @@ if($_POST["password"] === $_POST["confirmPassword"]) {
 
     $dbUser = new User();
 
-    $user = $dbUser->verifyUserPresence($_POST["password"], $arrayParameters["password"]);
+    $user = $dbUser->verifyUserPresence($_POST["username"],$_POST["password"]);
 
     if(isset($user)) {
         $_SESSION["user"] = $user;
-        // var_dump(password_verify($_POST["password"], $arrayParameters["password"]));
-        echo "vous êtes connecté en tant que : " . $_SESSION["user"]["username"] . " !";
-        header("Location: ../views/aministratorModif.php");
+        header("Location: administratorModif.php");
     } else {
         echo "Vérifiez vos informations de connexion.";
 }

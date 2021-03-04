@@ -147,7 +147,7 @@ class User extends Database
         $buildQuery->bindValue("form_username", $form_username);
         $buildQuery->execute();
         $user = $buildQuery->fetch(PDO::FETCH_ASSOC);
-        // on doit verifier le mot de passe entrer dans le form et le mot de passe de
+        // vérification du  mot de passe entrer dans le form et le mot de passe de
         // l'utisateur recup en bdd pour voir si il corresponde avant de confirmer la connection
         if (password_verify($form_password, $user["password"])) {
             return $user;

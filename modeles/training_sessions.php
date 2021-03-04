@@ -146,5 +146,27 @@ class TrainingSessions extends Database
         $buildQuery->bindValue("date", $strDate,PDO::PARAM_STR); 
         $buildQuery->execute();
         return $buildQuery->fetch(PDO::FETCH_ASSOC);
-    }   
+    }
+
+
+
+
+    
+    /**
+     * Méthode qui permet de modifier une session de formation  existante
+     * 
+     * @param array
+     * @return boolean
+     */
+    public function updateTrainingSessions(array $arrayParameters) {
+        $query = "UPDATE `training_sessions` SET `NAME_TRAINING` = :NAME_TRAINING, `START_DATE_TRAINING` = :START_DATE_TRAINING, `END_DATE_TRAINING` = :END_DATE_TRAINING, `NUMBER_OF_PLACES_TRAINING` = :NUMBER_OF_PLACES_TRAINING, `NUMBER_PLACES_TAKEN` = :NUMBER_PLACES_TAKEN WHERE `id` = :id;";
+        $buildQuery = parent::getDb()->prepare($query);
+        $buildQuery->bindValue("`NAME_TRAINING", $arrayParameters["`NAME_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("START_DATE_TRAINING", $arrayParameters["START_DATE_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("END_DATE_TRAINING", $arrayParameters["END_DATE_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("NUMBER_OF_PLACES_TRAINING", $arrayParameters["NUMBER_OF_PLACES_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("NUMBER_PLACES_TAKEN", $arrayParameters["NUMBER_PLACES_TAKEN"], PDO::PARAM_STR);
+        $buildQuery->bindValue("id", $arrayParameters["id"], PDO::PARAM_INT);
+        return $buildQuery->execute();
+    }  
 }

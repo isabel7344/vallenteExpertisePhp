@@ -25,6 +25,7 @@
                 <div class="col py-3 px-lg-5 border bg-light">
                 <div class="container-fluid pt-2 bg-dark">
                 <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
+                
                 <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
                 </div>
                 </div>
