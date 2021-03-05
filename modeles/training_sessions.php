@@ -91,7 +91,7 @@ class TrainingSessions extends Database
     }
     /**
      * Get the value of NUMBER_OF_PLACES_TRAINING
-     */ 
+     */
     public function getNUMBER_OF_PLACES_TRAINING()
     {
         return $this->NUMBER_OF_PLACES_TRAINING;
@@ -101,7 +101,7 @@ class TrainingSessions extends Database
      * Set the value of NUMBER_OF_PLACES_TRAINING
      *
      * @return  self
-     */ 
+     */
     public function setNUMBER_OF_PLACES_TRAINING($NUMBER_OF_PLACES_TRAINING)
     {
         $this->NUMBER_OF_PLACES_TRAINING = $NUMBER_OF_PLACES_TRAINING;
@@ -110,7 +110,7 @@ class TrainingSessions extends Database
     }
     /**
      * Get the value of NUMBER_PLACES_TAKEN
-     */ 
+     */
     public function getNUMBER_PLACES_TAKEN()
     {
         return $this->NUMBER_PLACES_TAKEN;
@@ -120,7 +120,7 @@ class TrainingSessions extends Database
      * Set the value of NUMBER_PLACES_TAKEN
      *
      * @return  self
-     */ 
+     */
     public function setNUMBER_PLACES_TAKEN($NUMBER_PLACES_TAKEN)
     {
         $this->NUMBER_PLACES_TAKEN = $NUMBER_PLACES_TAKEN;
@@ -139,17 +139,34 @@ class TrainingSessions extends Database
     {
         $month += 1; // car dans le tableau on commence a 0
         $strDate = strval($year) . "-" . str_pad(strval($month), 2, "0", STR_PAD_LEFT) . "-" .  str_pad(strval($day), 2, "0", STR_PAD_LEFT);
-        
+
         $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN`
         FROM `training_sessions` WHERE :date BETWEEN `START_DATE_TRAINING` AND `END_DATE_TRAINING`";
         $buildQuery = parent::getDb()->prepare($query);
-        $buildQuery->bindValue("date", $strDate,PDO::PARAM_STR); 
+        $buildQuery->bindValue("date", $strDate,PDO::PARAM_STR);
         $buildQuery->execute();
         return $buildQuery->fetch(PDO::FETCH_ASSOC);
     }
- /**
-     * Méthode qui permet de récupérer toutes les informations d'une session par son id
+    /**
+    * Méthode qui permet d'ajouter une session de formation en base de données
      * 
+     * @param array
+     * @return boolean
+     */
+    public function addTrainingSessionAdminModal(array $arrayParameters) {
+        $query = "INSERT INTO `training_sessions` (`NAME_TRAINING`, `START_DATE_TRAINING`, `END_DATE_TRAINING`, `NUMBER_OF_PLACES_TRAINING`, `NUMBER_PLACES_TAKEN`) VALUES (:NAME_TRAINING, :START_DATE_TRAINING, :END_DATE_TRAINING, :NUMBER_OF_PLACES_TRAINING, :NUMBER_PLACES_TAKEN);";
+        $buildQuery = parent::getDb()->prepare($query);
+        $buildQuery->bindValue("NAME_TRAINING", $arrayParameters["NAME_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("START_DATE_TRAINING", $arrayParameters["START_DATE_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("END_DATE_TRAINING", $arrayParameters["END_DATE_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("NUMBER_OF_PLACES_TRAINING", $arrayParameters["NUMBER_OF_PLACES_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("NUMBER_PLACES_TAKEN", $arrayParameters["NUMBER_PLACES_TAKEN"], PDO::PARAM_STR);
+        return $buildQuery->execute();
+    }
+
+/**
+     * Méthode qui permet de récupérer toutes les informations d'une session par son id
+     *
      * @param int
      * @return array|boolean
      */
@@ -167,19 +184,37 @@ class TrainingSessions extends Database
     }
     /**
      * Méthode qui permet de modifier une session de formation  existante
-     * 
+     *
      * @param array
      * @return boolean
      */
     public function updateTrainingSessions(array $arrayParameters) {
-        $query = "UPDATE `training_sessions` SET `NAME_TRAINING` = :NAME_TRAINING, `START_DATE_TRAINING` = :START_DATE_TRAINING, `END_DATE_TRAINING` = :END_DATE_TRAINING, `NUMBER_OF_PLACES_TRAINING` = :NUMBER_OF_PLACES_TRAINING, `NUMBER_PLACES_TAKEN` = :NUMBER_PLACES_TAKEN WHERE `id` = :id;";
+        $query = "UPDATE `training_sessions`
+                    SET `NAME_TRAINING` = :NAME_TRAINING,
+                        `START_DATE_TRAINING` = :START_DATE_TRAINING,
+                        `END_DATE_TRAINING` = :END_DATE_TRAINING,
+                        `NUMBER_OF_PLACES_TRAINING` = :NUMBER_OF_PLACES_TRAINING,
+                        `NUMBER_PLACES_TAKEN` = :NUMBER_PLACES_TAKEN
+                    WHERE `id` = :id;";
         $buildQuery = parent::getDb()->prepare($query);
-        $buildQuery->bindValue("`NAME_TRAINING", $arrayParameters["`NAME_TRAINING"], PDO::PARAM_STR);
+        $buildQuery->bindValue("NAME_TRAINING", $arrayParameters["NAME_TRAINING"], PDO::PARAM_STR);
         $buildQuery->bindValue("START_DATE_TRAINING", $arrayParameters["START_DATE_TRAINING"], PDO::PARAM_STR);
         $buildQuery->bindValue("END_DATE_TRAINING", $arrayParameters["END_DATE_TRAINING"], PDO::PARAM_STR);
         $buildQuery->bindValue("NUMBER_OF_PLACES_TRAINING", $arrayParameters["NUMBER_OF_PLACES_TRAINING"], PDO::PARAM_STR);
         $buildQuery->bindValue("NUMBER_PLACES_TAKEN", $arrayParameters["NUMBER_PLACES_TAKEN"], PDO::PARAM_STR);
         $buildQuery->bindValue("id", $arrayParameters["id"], PDO::PARAM_INT);
         return $buildQuery->execute();
-    }  
-}
+    }
+
+}  /**
+     * Méthode qui permet la suppression d'une session de formation via son Id
+     * 
+     * @param int
+     * @return boolean
+     */
+    // public function deleteTrainingSessionById (int $id){
+    //     $query = "DELETE FROM `training_sessions` WHERE `ID` = :ID;";
+    //     $buildQuery = parent::getDb()->prepare($query);
+    //     $buildQuery->bindValue("id", $id, PDO::PARAM_INT);
+    //     return $buildQuery->execute();
+    // }

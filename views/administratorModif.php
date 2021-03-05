@@ -26,6 +26,7 @@
                 <div class="container-fluid pt-2 bg-dark">
                 <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
                 <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
+                <button href="Calendrier.php"type="submit" name="submitAddTrainingSessions" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Ajouter une session</button>
                 </div>
                 </div>
             </div>

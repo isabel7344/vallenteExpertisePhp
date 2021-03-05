@@ -1,14 +1,15 @@
 <?php
 require_once("../controllers/calendrierDispoController.php");
 require("../modeles/training_sessions.php");
+require("modalCalendrier.php");
 /*
     ** fonction qui change les sessions dont il n'y a pas plus de place en rouge et vert libre
     */
-function getCssIfEventInDay($eventInDay)
+function getCssIfEventInDay($TrainingSessionInformations)
 {
-    if (empty($eventInDay)) {
+    if (empty($TrainingSessionInformations)) {
         return "";
-    } else if ($eventInDay['NUMBER_PLACES_TAKEN'] >= $eventInDay['NUMBER_OF_PLACES_TRAINING']) {
+    } else if ($TrainingSessionInformations['NUMBER_PLACES_TAKEN'] >= $TrainingSessionInformations['NUMBER_OF_PLACES_TRAINING']) {
         return 'bg-danger';
     } else {
         return 'bg-success';
@@ -38,47 +39,26 @@ function printDayIfInCalendar($case, &$day)
     return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? $day++ : '';
 }
 
-function showButton($case, &$day, $eventInDay)
+function showButton($case, &$day, $TrainingSessionInformations)
 {
     $printingDay = printDayIfInCalendar($case, $day);
-    if ($eventInDay) {
-        $modalID = "modal" . $case;
-?>
+    if ($TrainingSessionInformations) {
+        $modalID = "modal" . $case; ?>
         <a data-toggle="modal" href="<?php echo "#" . $modalID ?>" class="<?= getCssForDayNotInCalendarbutton($case, $day) ?>" style="color: white">
             <?php echo $printingDay ?>
         </a>
         <div class="modal fade" id="<?php echo $modalID ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo $modalID . "Label" ?>" aria-hidden="true">
-            
-            if ((isset($_POST['connectUser'])) && ($users_role ==  1)) {
-
-                <?php include 'modal.php' ?>
+        <?php if ((isset( $_SESSION["user"])) && $_SESSION["user"]["USER_ROLE_ID"] == 1) {
+                adminModal($TrainingSessionInformations);
             } else {
-                <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Session de Formation</h4>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="text-modal">Nom de la Formation: <?= strtoupper($eventInDay["NAME_TRAINING"]) ?></P>
-                        <p class="text-modal">Date de début de  formation: <?= $eventInDay["START_DATE_TRAINING"] ?></p>
-                        <p class="text-modal" > Date de fin de   formation: <?= $eventInDay["END_DATE_TRAINING"] ?></p>
-                        <p class="text-modal" > Nombre de places total: <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] ?></p>
-                        <p class="text-modal"> Nombre de places prises:<?= $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
-                        <p class="text-modal
-                        " > Nombre de places restantes: <?= $eventInDay["NUMBER_OF_PLACES_TRAINING"] - $eventInDay["NUMBER_PLACES_TAKEN"] ?></p>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal --> 
-            }           
-        <?php
-} else {
-    echo $printingDay;
-}
+                userModal($TrainingSessionInformations);
+            }
+    } else{
+        echo $printingDay;
+    }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -131,9 +111,9 @@ function showButton($case, &$day, $eventInDay)
                     while ($day <=  $_SESSION["calendrier"]->getNbDayInMonth()) { ?>
                         <tr class="text-center">
                             <?php for ($i = 1; $i <= 7; $i++) { ?>
-                                <?php $eventInDay =  $trainingSession->getEventInDay($day,  $_SESSION["calendrier"]->getMonthIndex(), $_SESSION["calendrier"]->getYear()) ?>
-                                <td class="<?= getCssForDayNotInCalendar($case, $day) . " " . getCssIfEventInDay($eventInDay) ?>">
-                                    <?php showButton($case, $day, $eventInDay); ?>
+                                <?php $TrainingSessionInformations =  $trainingSession->getEventInDay($day,  $_SESSION["calendrier"]->getMonthIndex(), $_SESSION["calendrier"]->getYear()) ?>
+                                <td class="<?= getCssForDayNotInCalendar($case, $day) . " " . getCssIfEventInDay($TrainingSessionInformations) ?>">
+                                    <?php showButton($case, $day, $TrainingSessionInformations); ?>
                                 </td>
                             <?php
                                 $case++;
@@ -151,6 +131,4 @@ function showButton($case, &$day, $eventInDay)
             <script src="https://kit.fontawesome.com/e2a465b2f1.js" crossorigin="anonymous"></script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             </body>
-
-
 </html>
