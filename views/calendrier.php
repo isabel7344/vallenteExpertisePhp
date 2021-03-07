@@ -119,7 +119,13 @@ function showButton($case, &$day, $TrainingSessionInformations)
                                 $case++;
                             } ?>
                         </tr>
-                    <?php } ?>
+                    <?php } 
+                    // SI L'UTILISATEUR EST EN ADMIN ALORS AFFICHER LA MODAL D'AJOUT SESSION 
+                    if ((isset( $_SESSION["user"])) && $_SESSION["user"]["USER_ROLE_ID"] == 1) { ?>
+                        <?php } 
+                        addTrainingSessionAdminModal()?>
+                        <button  data-toggle="modal" data-target="#addTrainingSession" name="submitAddTrainingSessions"class="btn btn-secondary" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Ajouter une session</button>
+                    ?>
                 </tbody>
             </table>
         </div>

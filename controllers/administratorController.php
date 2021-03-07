@@ -51,6 +51,7 @@ if($_POST["password"] === $_POST["confirmPassword"]) {
     $dbUser = new User();
 
     $user = $dbUser->verifyUserPresence($_POST["username"],$_POST["password"]);
+    var_dump(password_hash("Expertise181@",PASSWORD_BCRYPT));
 
     if(isset($user)) {
         $_SESSION["user"] = $user;

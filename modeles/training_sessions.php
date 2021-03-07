@@ -206,15 +206,17 @@ class TrainingSessions extends Database
         return $buildQuery->execute();
     }
 
-}  /**
+/**
      * Méthode qui permet la suppression d'une session de formation via son Id
      * 
      * @param int
      * @return boolean
      */
-    // public function deleteTrainingSessionById (int $id){
-    //     $query = "DELETE FROM `training_sessions` WHERE `ID` = :ID;";
-    //     $buildQuery = parent::getDb()->prepare($query);
-    //     $buildQuery->bindValue("id", $id, PDO::PARAM_INT);
-    //     return $buildQuery->execute();
-    // }
+    public function deleteTrainingSessionById (int $id){
+        $query = "DELETE FROM `training_sessions` WHERE `ID` = :ID;";
+        $buildQuery = parent::getDb()->prepare($query);
+        $buildQuery->bindValue("id", $id, PDO::PARAM_INT);
+        return $buildQuery->execute();
+    }
+
+}  

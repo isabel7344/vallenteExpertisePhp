@@ -1,24 +1,15 @@
 <?php
-setlocale(LC_ALL, "fr_FR.utf8");
-require "../Models/Database.php";
 
-$training_sessions = new TrainingSessions();
+require "../modeles/training_sessions.php";
 
-if(isset($_POST["submitDeleteTrainingSessions"]) && !empty($_POST["submitDeleteTrainingSessions"])) {
+$TrainingSession = new TrainingSessions();
+$regexId = "/^[0-9]+$/";
 
-    require "../modeles/training_sessions.php";
-
-    $TrainingSession = new TrainingSessions();
-
-    $regexId = "/^[0-9]+$/";
-
-    $id = htmlspecialchars($_POST["deleteTrainingSessionById"]);
-    if(preg_match($regexId, $id)) {
-        $verifiedId = (int)$id;
+if(isset($_POST["id"]) && preg_match($regexId, $_POST["id"]) ) { 
+        $verifiedId = $_POST["id"];
         $resultDeleteTrainingSession = $TrainingSession->deleteTrainingSessionById($verifiedId);
-    } else {
-        $errorMessage = "Arrête de toucher à mes POST";
-    }
+} else {
+    $errorMessage = "";
 }
 
 
