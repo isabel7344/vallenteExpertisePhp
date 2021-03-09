@@ -39,15 +39,14 @@
                     <input type="text" class="form-control contactcolor" id="NUMBER_OF_PLACES_TRAINING" name="NUMBER_OF_PLACES_TRAINING" value="<?= isset($TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"]) ? $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] : "" ?>">
                     <label for="NUMBER_PLACES_TAKEN" class="font-weight-bold">Nombre de places prises</label>
                     <input type="text" class="form-control contactcolor" id="NUMBER_PLACES_TAKEN" name="NUMBER_PLACES_TAKEN" value="<?= isset($TrainingSessionInformations["NUMBER_PLACES_TAKEN"]) ? $TrainingSessionInformations["NUMBER_PLACES_TAKEN"] : "" ?>">
-        <form action="modalController.php">
-        <input type="hidden" name="id" value="<?= $TrainingSessionInformations["id"] ?>"/>
-            <button type="submit"class="btn btn-secondary m-4" name="submitModifTrainingSessions" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Valider la modification</button>
-        </form>
-		<!-- <form action="supressionTrainingSessionController.php">
-			<input type="hidden" name="id" value="<?= $TrainingSessionInformations["id"] ?>"/>
-			<button type="submit" name="submitDeleteTrainingSessions" class="btn btn-secondary" data-dismiss="modal"value="<?= isset($verifiedId) ? $verifiedId : ""  ?>">Supprimer</button>
-		<form>  -->
-       
+                    <input type="hidden" name="id" value="<?= $TrainingSessionInformations["id"] ?>"/>
+                    <button type="submit"class="btn btn-secondary m-4" name="submitModifTrainingSessions" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Valider la modification</button>
+                </form>
+		        <form action="../controllers/supressionTrainingSessionController.php">
+			        <input type="hidden" name="id" value="<?= $TrainingSessionInformations["id"] ?>"/>
+			        <button type="submit" name="submitDeleteTrainingSessions" class="btn btn-secondary" data-dismiss="modal"value="<?= isset($verifiedId) ? $verifiedId : ""  ?>">Supprimer</button>
+		        <form>  
+         -->
         </div>
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
@@ -57,7 +56,7 @@
 
  <?php function addTrainingSessionAdminModal() { ?>
     <div class="modal fade" id="addTrainingSession" tabindex="-1" role="dialog" aria-labelledby="addTrainingSessionLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Session de Formation</h4>
@@ -75,9 +74,8 @@
                     <input type="text" class="form-control contactcolor" id="NUMBER_OF_PLACES_TRAINING" name="NUMBER_OF_PLACES_TRAINING">
                     <label for="NUMBER_PLACES_TAKEN" class="font-weight-bold">Nombre de places prises</label>
                     <input type="text" class="form-control contactcolor" id="NUMBER_PLACES_TAKEN" name="NUMBER_PLACES_TAKEN">
-                    <button type="submit" name="submitAddTrainingSessions" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Ajouter une session</button>
-        </form>
-        </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 <?php } ?> 

@@ -1,7 +1,7 @@
 <?php
 require("../controllers/administratorController.php");
 // require("../controllers/ajoutTrainingSessionController.php");
-// require("../controllers/supressionTrainingSessionController.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

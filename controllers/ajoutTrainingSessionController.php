@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require "../modeles/training_sessions.php";
 
 if(!empty($_POST)) {
@@ -34,7 +34,7 @@ if(!empty($_POST)) {
 
     if(empty($arrayErrors)){
 
-        $TrainingSessions = [
+        $AddTrainingSessions = [
             "id" => $id,
             "NAME_TRAINING" => $NAME_TRAINING,
             "START_DATE_TRAINING" => $START_DATE_TRAINING,
@@ -42,9 +42,9 @@ if(!empty($_POST)) {
             "NUMBER_OF_PLACES_TRAINING" => $NUMBER_OF_PLACES_TRAINING,
             "NUMBER_PLACES_TAKEN" => $NUMBER_PLACES_TAKEN,
         ];
-        $TrainingSession = new TrainingSessions();
+        $AddTrainingSession = new TrainingSessions();
 
-        if($TrainingSession->addTrainingSessionAdminModal($TrainingSessions)) {
+        if($AddTrainingSession->addTrainingSessionAdminModal($AddTrainingSessions)) {
             $message = "La session de formation  a bien été ajoutée";
             header("Location:  /views/modalCalendrier.php");
         } else {

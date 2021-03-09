@@ -1,3 +1,8 @@
+<?php
+session_start();
+require ("modalCalendrier.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,7 +31,18 @@
                 <div class="container-fluid pt-2 bg-dark">
                 <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
                 <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
-                <button href="Calendrier.php"type="submit" name="submitAddTrainingSessions" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Ajouter une session</button>
+               <?php 
+           
+               // SI L'UTILISATEUR EST EN ADMIN ALORS AFFICHER LA MODAL D'AJOUT SESSION 
+ 
+                    if ((isset( $_SESSION["user"])) && $_SESSION["user"]["USER_ROLE_ID"] == 1) { ?>
+                         <button class="btn btn-secondary m-4" data-toggle="modal" data-target="#addTrainingSession" name="submitAddTrainingSessions"class="btn btn-secondary" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Ajoutr une session</button>              
+                        <?php 
+                        
+                        addTrainingSessionAdminModal();
+                        ?>
+                    <?php   
+                    }?>
                 </div>
                 </div>
             </div>

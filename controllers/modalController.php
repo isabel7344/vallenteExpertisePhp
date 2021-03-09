@@ -20,18 +20,18 @@ $id = $_POST["id"];
 if(preg_match($regexName, $NAME_TRAINING)){
     $verifiedNAME_TRAINING = $NAME_TRAINING;
 } else {
-    // $arrayErrors['NAME_TRAINING'] = "Veuillez renseigner une valeur correcte";
+    $arrayErrors['NAME_TRAINING'] = "Veuillez renseigner une valeur correcte";
 }
 
 if(preg_match($regexDate, $START_DATE_TRAINING)){
     $verifiedSTART_DATE_TRAINING = $START_DATE_TRAINING;
 } else {
-    // $arrayErrors['START_DATE_TRAINING'] = "Veuillez renseigner une valeur correcte";
+    $arrayErrors['START_DATE_TRAINING'] = "Veuillez renseigner une valeur correcte";
 }
 if(preg_match($regexDate, $END_DATE_TRAINING)){
     $verifiedEND_DATE_TRAINING = $END_DATE_TRAINING;
 } else {
-    // $arrayErrors['END_DATE_TRAINING'] = "Veuillez renseigner une valeur correcte";
+    $arrayErrors['END_DATE_TRAINING'] = "Veuillez renseigner une valeur correcte";
 }
 
     // On fera bien attention ici à rajouter l'id de la session de formation concerné par la modification dans le tableau de paramètres à envoyer à la méthode de modification
