@@ -8,6 +8,7 @@ $regexId = "/^[0-9]+$/";
 if(isset($_POST["id"]) && preg_match($regexId, $_POST["id"]) ) { 
         $verifiedId = $_POST["id"];
         $resultDeleteTrainingSession = $TrainingSession->deleteTrainingSessionById($verifiedId);
+        header("Location:  /views/calendrier.php");
 } else {
     $errorMessage = "";
 }

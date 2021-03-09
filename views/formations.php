@@ -15,7 +15,6 @@
 
 <body>
     <?php include '../commons/nav.php' ?>
-
     <div class="wrapper">
         <div id="services" class="col-xl-8 col-sm-11 bg-white text-center mt-3 py-2 mx-auto rounded">
             <h1 class="title">Vallente Expertise 181</h1>

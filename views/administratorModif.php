@@ -1,6 +1,7 @@
 <?php
 session_start();
 require ("modalCalendrier.php");
+// require("../controllers/ajoutTrainingSessionController.php");
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +19,12 @@ require ("modalCalendrier.php");
 
 <body>
     <?php include '../commons/nav.php' ?>
-    <div id="services" class="col-xl-8 col-sm-11 bg-white text-center mt-3 py-2 mx-auto rounded ">
-        <div class="imageFond">
-            <div>
-                <h1 class="titleDevis">Vallente Expertise 181</h1>
-                <h2 class="slogan">LA PREVENTION, C’EST NOTRE METIER!</h2>
-            </div>
+<div id="services" class="col-xl-8 col-sm-11 bg-white text-center mt-3 py-2 mx-auto rounded ">
+    <div class="imageFond">
+        <div>
+            <h1 class="titleDevis">Vallente Expertise 181</h1>
+            <h2 class="slogan">LA PREVENTION, C’EST NOTRE METIER!</h2>
+        </div>
         </div>
         <div class="container px-lg-5">
             <div class="row mx-lg-n5">
@@ -31,23 +32,13 @@ require ("modalCalendrier.php");
                 <div class="container-fluid pt-2 bg-dark">
                 <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
                 <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
-               <?php 
-           
-               // SI L'UTILISATEUR EST EN ADMIN ALORS AFFICHER LA MODAL D'AJOUT SESSION 
- 
-                    if ((isset( $_SESSION["user"])) && $_SESSION["user"]["USER_ROLE_ID"] == 1) { ?>
-                         <button class="btn btn-secondary m-4" data-toggle="modal" data-target="#addTrainingSession" name="submitAddTrainingSessions"class="btn btn-secondary" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Ajoutr une session</button>              
-                        <?php 
-                        
-                        addTrainingSessionAdminModal();
-                        ?>
-                    <?php   
-                    }?>
                 </div>
                 </div>
             </div>
-        </div>    
-            <?php include '../commons/footer.php' ?>
+        </div> 
+    </div>
+</div>
+        <?php include '../commons/footer.php' ?>    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
@@ -58,6 +49,5 @@ require ("modalCalendrier.php");
     <script>
         AOS.init();
     </script>
-    
 </body>
 </html>

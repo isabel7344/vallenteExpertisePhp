@@ -154,7 +154,8 @@ class TrainingSessions extends Database
      * @return boolean
      */
     public function addTrainingSessionAdminModal(array $arrayParameters) {
-        $query = "INSERT INTO `training_sessions` (`NAME_TRAINING`, `START_DATE_TRAINING`, `END_DATE_TRAINING`, `NUMBER_OF_PLACES_TRAINING`, `NUMBER_PLACES_TAKEN`) VALUES (:NAME_TRAINING, :START_DATE_TRAINING, :END_DATE_TRAINING, :NUMBER_OF_PLACES_TRAINING, :NUMBER_PLACES_TAKEN);";
+        $query = "INSERT INTO `training_sessions` (`NAME_TRAINING`, `START_DATE_TRAINING`, `END_DATE_TRAINING`, `NUMBER_OF_PLACES_TRAINING`, `NUMBER_PLACES_TAKEN`) 
+        VALUES (:NAME_TRAINING, :START_DATE_TRAINING, :END_DATE_TRAINING, :NUMBER_OF_PLACES_TRAINING, :NUMBER_PLACES_TAKEN);";
         $buildQuery = parent::getDb()->prepare($query);
         $buildQuery->bindValue("NAME_TRAINING", $arrayParameters["NAME_TRAINING"], PDO::PARAM_STR);
         $buildQuery->bindValue("START_DATE_TRAINING", $arrayParameters["START_DATE_TRAINING"], PDO::PARAM_STR);
@@ -215,7 +216,7 @@ class TrainingSessions extends Database
     public function deleteTrainingSessionById (int $id){
         $query = "DELETE FROM `training_sessions` WHERE `ID` = :ID;";
         $buildQuery = parent::getDb()->prepare($query);
-        $buildQuery->bindValue("id", $id, PDO::PARAM_INT);
+        $buildQuery->bindValue("ID", $id, PDO::PARAM_INT);
         return $buildQuery->execute();
     }
 

@@ -38,7 +38,9 @@ function printDayIfInCalendar($case, &$day)
 {
     return $case >=  $_SESSION["calendrier"]->getFirstDayInMonth() && $day <=  $_SESSION["calendrier"]->getNbDayInMonth() ? $day++ : '';
 }
-
+/*
+** fonction qui permet d'afficher la modal au clic de la case sur le calendrier de l'admin si connecté
+*/
 function showButton($case, &$day, $TrainingSessionInformations)
 {
     $printingDay = printDayIfInCalendar($case, $day);
@@ -120,10 +122,18 @@ function showButton($case, &$day, $TrainingSessionInformations)
                             } ?>
                         </tr>
                     <?php } 
-                    ?>
-                 
+                    ?> 
                 </tbody>
             </table>
+            <?php 
+               // SI L'UTILISATEUR EST EN ADMIN ALORS AFFICHER LA MODAL D'AJOUT SESSION 
+                    if ((isset( $_SESSION["user"])) && $_SESSION["user"]["USER_ROLE_ID"] == 1) { ?>
+                        <button class="btn btn-secondary m-4" data-toggle="modal" data-target="#addTrainingSession" name="submitAddTrainingSessions"class="btn btn-secondary" value="<?= isset($verifiedId) ? $verifiedId : "" ?>">Ajouter une session</button>              
+                        <?php 
+                        addTrainingSessionAdminModal();
+                        ?>
+                    <?php   
+                    }?>
         </div>
     </div>
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

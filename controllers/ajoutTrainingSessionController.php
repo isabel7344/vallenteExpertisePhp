@@ -8,47 +8,38 @@ if(!empty($_POST)) {
     
     $arrayErrors = [];
 
-    $lastname = isset($_POST["NAME_TRAINING"]) ? htmlspecialchars($_POST["NAME_TRAINING"]) : "";
-    $firstname = isset($_POST["START_DATE_TRAINING"]) ? htmlspecialchars($_POST["START_DATE_TRAINING"]) : "";
-    $birthdate = isset($_POST["END_DATE_TRAINING"]) ? htmlspecialchars($_POST["END_DATE_TRAINING"]) : "";
-    $phone = isset($_POST["NUMBER_OF_PLACES_TRAINING"]) ? htmlspecialchars($_POST["NUMBER_OF_PLACES_TRAINING"]) : "";
-    $email = isset($_POST["NUMBER_PLACES_TAKEN"]) ? htmlspecialchars($_POST["NUMBER_PLACES_TAKEN"]) : "";
+    $NAME_TRAINING = $_POST["NAME_TRAINING"];
+    $START_DATE_TRAINING = $_POST["START_DATE_TRAINING"];
+    $END_DATE_TRAINING = $_POST["END_DATE_TRAINING"];
+    $NUMBER_OF_PLACES_TRAINING = $_POST["NUMBER_OF_PLACES_TRAINING"];
+    $NUMBER_PLACES_TAKEN = $_POST["NUMBER_PLACES_TAKEN"];
 
-    if(preg_match($regexName, $NAME_TRAINING)){
-        $verifiedNAME_TRAINING = $NAME_TRAINING;
-    } else {
+    if(!isset($NAME_TRAINING) || !preg_match($regexName, $NAME_TRAINING)){
         $arrayErrors['NAME_TRAINING'] = "Veuillez renseigner une valeur correcte";
-    }
+    } 
     
-    if(preg_match($regexDate, $START_DATE_TRAINING)){
-        $verifiedSTART_DATE_TRAINING = $START_DATE_TRAINING;
-    } else {
+    if(!isset($START_DATE_TRAINING) || !preg_match($regexDate, $START_DATE_TRAINING)){
         $arrayErrors['START_DATE_TRAINING'] = "Veuillez renseigner une valeur correcte";
-    }
-    if(preg_match($regexDate, $END_DATE_TRAINING)){
-        $verifiedEND_DATE_TRAINING = $END_DATE_TRAINING;
-    } else {
+    } 
+
+    if(!isset($END_DATE_TRAINING) || !preg_match($regexDate, $END_DATE_TRAINING)){
         $arrayErrors['END_DATE_TRAINING'] = "Veuillez renseigner une valeur correcte";
-    }
+    } 
     
-
-    if(empty($arrayErrors)){
-
         $AddTrainingSessions = [
-            "id" => $id,
+            
             "NAME_TRAINING" => $NAME_TRAINING,
             "START_DATE_TRAINING" => $START_DATE_TRAINING,
             "END_DATE_TRAINING" => $END_DATE_TRAINING,
             "NUMBER_OF_PLACES_TRAINING" => $NUMBER_OF_PLACES_TRAINING,
             "NUMBER_PLACES_TAKEN" => $NUMBER_PLACES_TAKEN,
         ];
-        $AddTrainingSession = new TrainingSessions();
 
-        if($AddTrainingSession->addTrainingSessionAdminModal($AddTrainingSessions)) {
+        if((new TrainingSessions())->addTrainingSessionAdminModal($AddTrainingSessions)) {
             $message = "La session de formation  a bien été ajoutée";
-            header("Location:  /views/modalCalendrier.php");
+            header("Location:  /views/calendrier.php");
         } else {
             $message = "Il y a eu une erreur lors de l'ajout de la session de formation";
         }
-    }
+    
 }
