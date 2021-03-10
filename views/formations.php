@@ -26,7 +26,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/formation-cqp.jpg" class="card-img" alt="CQP Agent de prévention et sécurité"></div>
+                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/formation-cqp.jpg" class="card-img" alt="CQP Agent de prévention et sécurité"></div>
                             <div class="col-xl-8">
                                 <div class="card-body">
                                     <h2 class="title-card">FORMATION CQP APS – AGENT DE SÉCURITÉ</h2>
@@ -53,7 +53,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/GestionConflit.jpg" class="card-img" alt="gestion de conflits">
+                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/GestionConflit.jpg" class="card-img" alt="gestion de conflits">
                             </div>
                             <div class="col-xl-8">
                                 <div class="card-body">
@@ -67,7 +67,7 @@
                                         </li>
                                         <p class="card-text">Votre survie peut alors dépendre du comportement que vous
                                             adopterez</p>
-                                        <ul class="card-text">
+                                        <ul class="card-text" >
                                             <h5 class="card-title font-weight-bold p-0"><u>PUBLIC</u></h5>
                                             <li>Personnes souhaitant prévenir et gérer les conflits et les tensions dans
                                                 le
@@ -87,7 +87,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/risqueTerroriste.jpg" class="card-img" alt="agent de sécurité évènementiel"></div>
+                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/risqueTerroriste.jpg" class="card-img" alt="agent de sécurité évènementiel"></div>
                             <div class="col-xl-8">
                                 <div class="card-body">
                                     <h2 class="title-card">RISQUE TERRORISTE</h2>
@@ -96,7 +96,7 @@
                                     </p>
                                     <p class="card-text">Que signifie un acte terroriste ?
                                     </p>
-                                    <ul class="card-text">
+                                    <ul class="card-text" >
                                         <li> C’est une atteinte volontaire à l’intégrité physique ou à la vie d’autrui
                                         </li>
                                         <li> Les raisons sont souvent idéologiques et les terroristes recherchent la

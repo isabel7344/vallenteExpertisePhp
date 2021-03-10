@@ -1,3 +1,4 @@
+<!-- Modal d'informations sur les session de formation pour le client sans pouvoir agir dessus -->
 <?php function userModal($TrainingSessionInformations){ ?>
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -16,7 +17,7 @@
     </div>
 </div>
 <?php } ?>
-
+ <!-- Modal de modification et suppression  de session de formation sur calendrier admin et en base de donnée -->
 <?php function adminModal($TrainingSessionInformations) { ?>
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -69,7 +70,7 @@
                     <input type="text" class="form-control contactcolor"  name="NUMBER_OF_PLACES_TRAINING">
                     <label for="NUMBER_PLACES_TAKEN" class="font-weight-bold">Nombre de places prises</label>
                     <input type="text" class="form-control contactcolor"  name="NUMBER_PLACES_TAKEN">
-                    <button class="btn btn-secondary m-4" data-toggle="modal" data-target="#addTrainingSession" name="submitAddTrainingSessions">Ajouter session en base de donnée</button>              
+                    <button class="btn btn-secondary m-4 pb-2" data-toggle="modal" data-target="#addTrainingSession" name="submitAddTrainingSessions">Ajouter session en base de donnée</button>              
                 </form>
             </div>
         </div><!-- /.modal-content -->

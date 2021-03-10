@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/e2a465b2f1.js" crossorigin="anonymous"></script>
     <link rel="icon" href="../assets/img/logoFondBlanc.png">
-    <link rel="stylesheet" href="../assets/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Vallente EXpertise</title>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
@@ -35,15 +35,15 @@
                             de sécurité incendie, SSIAP 3 pour les chefs de service de sécurité incendie)
                         </p>
 
-                        <div class="card mb-3 style=" max-width: 540px;">
+                        <div class="card mb-3 style="max-width: 540px;">
                             <div class=" row no-gutters">
-                                <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/SSIAP1.jpg" class="card-img" alt="agent de sécurité"></div>
+                                <div class="col-xl-4 w-auto p-4"><img  src="../assets/img/SSIAP1.jpg" class="card-img" alt="agent de sécurité"></div>
                                 <div class="col-xl-8">
                                     <div class="card-body">
                                         <h2 class="title-card">Formation SSIAP 1</h2>
                                         <h4 class="card-title p-0"> QUELLES SONT LES MISSIONS DE LA FORMATION SSIAP 1 ?
                                         </h4>
-                                        <ul class="card-text">
+                                        <ul class="card-text" >
                                             <li>Appliquer les règles élémentaires de prévention incendie.</li>
                                             <li>Intervenir sur un début d’incendie et assurer l’évacuation du public.
                                             </li>
@@ -65,7 +65,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/SSIAP2.jpg" class="card-img" alt="agent de sécurité SSIAP">
+                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/SSIAP2.jpg" class="card-img" alt="agent de sécurité SSIAP">
                             </div>
 
                             <div class="col-xl-8">
@@ -99,7 +99,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/SSIAP3.jpg" class="card-img" alt="agent de sécurité évènementiel"></div>
+                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/SSIAP3.jpg" class="card-img" alt="agent de sécurité évènementiel"></div>
                             <div class="col-xl-8">
                                 <div class="card-body">
                                     <h2 class="title-card">Formation SSIAP 3</h2>

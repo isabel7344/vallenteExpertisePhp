@@ -2,7 +2,7 @@
 
 html,
 body {
-    background-image: url("img/fond2.jpg");;
+    background-image: url("img/fond2.png");;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -93,7 +93,7 @@ font-size: .8rem;
 
 .card-img{
     height: 20rem;
-   
+    object-fit:cover;  
 }
 .card-text{
     font-size: 16px;
@@ -111,6 +111,10 @@ font-size: .8rem;
 }
 .card{
     background-color:#e0e0eb ;
+}
+
+ul{
+    list-style: none;
 }
 
 /*css devis-contact */
@@ -140,14 +144,9 @@ font-size: .8rem;
     background-color: rgba(0, 0, 0, .5);
 }
 
-
-
-
 .formValid {
     color: #00E8CC !important;
 }
-
-
 
 /* css footer */
 footer a:hover {

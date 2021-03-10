@@ -19,12 +19,12 @@ require ("modalCalendrier.php");
 
 <body>
     <?php include '../commons/nav.php' ?>
-<div id="services" class="col-xl-8 col-sm-11 bg-white text-center mt-3 py-2 mx-auto rounded ">
-    <div class="imageFond">
-        <div>
+    <div id="services" class="col-xl-8 col-sm-11 bg-white text-center mt-3 py-2 mx-auto rounded ">
+        <div class="imageFond">
+            <div>
             <h1 class="titleDevis">Vallente Expertise 181</h1>
             <h2 class="slogan">LA PREVENTION, C’EST NOTRE METIER!</h2>
-        </div>
+            </div>
         </div>
         <div class="container px-lg-5">
             <div class="row mx-lg-n5">
@@ -37,7 +37,6 @@ require ("modalCalendrier.php");
             </div>
         </div> 
     </div>
-</div>
         <?php include '../commons/footer.php' ?>    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

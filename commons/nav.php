@@ -7,8 +7,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class="container-fluid justify-content-md-end justify-content-xl-center">
-            <a class="navbar-brand d-md-none d-xl-block">
-                <img class="img-responsive d-inline-block align-top" width="30" height="30" src="../assets/img/logoFondBlanc.png" alt="Logo de la société Vallente Expertise 181">
+            <a class="navbar-brand  d-xl-block">
+                <img class="img-responsive d-none d-xl-inline-block align-top" width="30" height="30" src="../assets/img/logoFondBlanc.png" alt="Logo de la société Vallente Expertise 181">
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
