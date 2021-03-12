@@ -132,7 +132,7 @@ class User extends Database
 
         return $this;
     }
-
+ 
     /**
      * VerifyUserPresence prend en parametre le nom d'utilisateur et le mot de passe venant du form de connection
      * @param form_username => username de la personne se connectant

@@ -132,7 +132,7 @@ class TrainingSessions extends Database
         parent::__construct();
     }
     /**
-     * fonction qui permet de récupérer les listes des formations positionnées sur une année
+     * Méthode qui permet de récupérer les listes des formations positionnées sur une année
      *@param int
      */
     public function getEventInDay($day, $month, $year)
@@ -169,7 +169,7 @@ class TrainingSessions extends Database
      * Méthode qui permet de récupérer toutes les informations d'une session par son id
      *
      * @param int
-     * @return array|boolean
+     *
      */
     public function getOneTrainingSessionById(int $id) {
         $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN` FROM `training_sessions` WHERE `id` = :id;";
@@ -211,7 +211,7 @@ class TrainingSessions extends Database
      * Méthode qui permet la suppression d'une session de formation via son Id
      * 
      * @param int
-     * @return boolean
+     * 
      */
     public function deleteTrainingSessionById (int $id){
         $query = "DELETE FROM `training_sessions` WHERE `ID` = :ID;";
