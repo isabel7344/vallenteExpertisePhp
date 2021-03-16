@@ -2,6 +2,7 @@
 
 html,
 body {
+    /* overflow-x: hidden; */
     background-image: url("img/fond2.png");;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -90,7 +91,12 @@ font-size: .8rem;
 .head{
     background-color:#DC2F02 
 }
+.card-img-SSIAP{
+    height:20rem;
+    object-fit:cover; 
+    text-align: center;
 
+}
 .card-img{
     height: 20rem;
     object-fit:cover;  
@@ -146,6 +152,10 @@ ul{
 
 .formValid {
     color: #00E8CC !important;
+}
+
+.text-modal{
+    font-weight: bold;
 }
 
 /* css footer */

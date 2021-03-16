@@ -37,7 +37,7 @@
 
                         <div class="card mb-3 style="max-width: 540px;">
                             <div class=" row no-gutters">
-                                <div class="col-xl-4 w-auto p-4"><img  src="../assets/img/SSIAP1.jpg" class="card-img" alt="agent de sécurité"></div>
+                                <div class="col-xl-4 w-auto p-4"><img  src="../assets/img/SSIAP1.jpg" class="card-img-SSIAP ml-2" alt="agent de sécurité"></div>
                                 <div class="col-xl-8">
                                     <div class="card-body">
                                         <h2 class="title-card">Formation SSIAP 1</h2>
@@ -65,7 +65,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/SSIAP2.jpg" class="card-img" alt="agent de sécurité SSIAP">
+                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/SSIAP2.jpg" class="card-img-SSIAP ml-2" alt="agent de sécurité SSIAP">
                             </div>
 
                             <div class="col-xl-8">
@@ -99,7 +99,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/SSIAP3.jpg" class="card-img" alt="agent de sécurité évènementiel"></div>
+                            <div class="col-xl-4 w-auto p-4"><img src="../assets/img/SSIAP3.jpg" class="card-img-SSIAP ml-2" alt="agent de sécurité évènementiel"></div>
                             <div class="col-xl-8">
                                 <div class="card-body">
                                     <h2 class="title-card">Formation SSIAP 3</h2>
