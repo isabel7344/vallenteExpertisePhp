@@ -54,17 +54,17 @@
                 <p class="textHome"><span class="Name2">Nos valeurs ajoutées</span></p>
                 <p class="textHome">Entreprise à taille humaine proposant des prestations personnalisées notamment
                     dans
-                    la formation.</p>
+                    <span class="Name"> la formation.</span></p>
                 </p>
-                <p class="textHome">Une vaste expériences professionnelles comme responsable sécurité sur les
+                <p class="textHome">Une <span class="Name">vaste expériences professionnelles</span> comme responsable sécurité sur les
                     secteurs
                     alimentaire, industriel, tertiaire.</p>
 
                 <p class="textHome">Une solide expérience de prévention composé d’un SSIAP III et d’un diplôme
                     coordonnateur
-                    SSI,animateur de prévention, SST et toujours disponible,avec une grande capacité d'écoute et une
+                    SSI,animateur de prévention, SST et toujours disponible,avec une <span class="Name">grande capacité d'écoute et une
                     volonté
-                    de vous satisfaire</p>
+                    de vous satisfaire</span></p>
             </div>
         </div>
     </div>

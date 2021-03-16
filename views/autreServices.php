@@ -28,7 +28,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4 "><img style=" object-fit:cover" src="../assets/img/audit.jpg" class="card-img" alt="agent de sécurité"></div>
+                            <div class="col-xl-4 w-auto p-4 "><img  src="../assets/img/audit.jpg" class="card-img" alt="agent de sécurité"></div>
                             <div class="col-xl-8">
                                 <div class="card-body p-5">
                                     <h2 class="title-card">AUDIT SECURITE INCENDIE</h2>
@@ -58,7 +58,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/audit_surete.jpg" class="card-img" alt="agent de sécurité SSIAP">
+                            <div class="col-xl-4 w-auto p-4"><img  src="../assets/img/audit_surete.jpg" class="card-img" alt="agent de sécurité SSIAP">
                             </div>
                             <div class="col-xl-8">
                                 <h2 class="title-card">AUDIT SURETE</h2>
@@ -69,7 +69,7 @@
                                     lors desquelles nos auditeurs spécialisés sont introduits au sein de votre
                                     entrepris</p>
                                 <h4 class=" card-title p-0">Les Fonctions de l'audit</h4>
-                                <ul class="card-text">
+                                <ul class="card-text" >
                                     <li><span class="font-weight-bold">Détecter</span> tout acte de nuisance, en
                                         identifier les auteurs</li>
                                     <li><span class="font-weight-bold">Détecter</span> toute faille humaine et
@@ -94,7 +94,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/consigne.jpg" class="card-img rounded" alt="Consigne de sécurité">
+                            <div class="col-xl-4 w-auto p-4"><img  src="../assets/img/consigne.jpg" class="card-img rounded" alt="Consigne de sécurité">
                             </div>
                             <div class="col-xl-8">
                                 <div class="card-body">
@@ -117,7 +117,7 @@
                                     </p>
                                     <p class="card-text"> Nous pouvons aussi vous accompagner:
                                     </p>
-                                    <ul class="card-text">
+                                    <ul class="card-text" >
                                         <li> lors de votre <span class="font-weight-bold">Commission de
                                                 sécurité,</span>
                                         </li>
@@ -139,7 +139,7 @@
                 <div data-aos="flip-left" class="col-sm">
                     <div class="card mb-3 style=" max-width: 540px;">
                         <div class=" row no-gutters">
-                            <div class="col-xl-4 w-auto p-4"><img style=" object-fit:cover" src="../assets/img/verification.jpg" class="card-img" alt="agent de sécurité évènementiel"></div>
+                            <div class="col-xl-4 w-auto p-4"><img  src="../assets/img/verification.jpg" class="card-img" alt="agent de sécurité évènementiel"></div>
                             <div class="col-xl-8">
                                 <div class="card-body">
                                     <h2 class="title-card">VENTE , VERIFICATION ET INSTALLATION</h2>

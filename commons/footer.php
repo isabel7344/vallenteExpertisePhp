@@ -14,7 +14,7 @@
                 <div class="text-center">
                     <h6 class="text-uppercase text-white NameEntreprise">Vallente Expertise 181- Siège :
                     </h6>
-                    <img style="width: 80px; height: 80px; filter: invert(2);" src="../assets/img/logo.svg" alt="Logo de la société Vallente Expertise 181" />
+                    <img  class =" p-2"style="width: 45px; height: 45px;" src="../assets/img/logo.png" alt="Logo de la société Vallente Expertise 181" />
                     <p class="Adress"> Daloa, Côte d'Ivoire, <br>Quartier Orly,Extension BP 1140 Daloa
                     </p>
                 </div>

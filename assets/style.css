@@ -2,7 +2,8 @@
 
 html,
 body {
-    background-image: url("img/fond2.jpg");;
+    /* overflow-x: hidden; */
+    background-image: url("img/fond2.png");;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -90,10 +91,15 @@ font-size: .8rem;
 .head{
     background-color:#DC2F02 
 }
+.card-img-SSIAP{
+    height:20rem;
+    object-fit:cover; 
+    text-align: center;
 
+}
 .card-img{
     height: 20rem;
-   
+    object-fit:cover;  
 }
 .card-text{
     font-size: 16px;
@@ -111,6 +117,45 @@ font-size: .8rem;
 }
 .card{
     background-color:#e0e0eb ;
+}
+
+ul{
+    list-style: none;
+}
+
+/*css devis-contact */
+
+.displayMessage {
+    height: 2rem;
+    text-align: center;
+    color: indianred !important;
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+}
+
+.imageFond {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-image: url("../assets/img/abidjan-ivory-coast.jpg");
+    color: white;
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+    align-content: flex-end;
+    justify-content: flex-end;
+}
+
+.imageFond div {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.formValid {
+    color: #00E8CC !important;
+}
+
+.text-modal{
+    font-weight: bold;
 }
 
 /* css footer */

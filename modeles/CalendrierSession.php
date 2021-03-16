@@ -27,7 +27,6 @@ class CalendrierSession
 
 
     /** crée un calendrier
-     * @param $month: string => mois en francais
      * @param $year: int => anée
      */
     function __construct($month, $year)
@@ -68,6 +67,11 @@ class CalendrierSession
         $this->nbDaysMonth = cal_days_in_month(CAL_GREGORIAN, $this->currentMonthIndex + 1, $this->year);
         $this->currentMonthName = $this->months[$this->currentMonthIndex];
     }
+    
+    /**
+      * fonction qui permet de recupérer le mois précedent du calendrier 
+      * $currentMonthIndex: int=> index du mois 
+      */
 
     function prevMonth()
     {
@@ -78,6 +82,11 @@ class CalendrierSession
         }
         $this->initMonth();
     }
+/**
+      * fonction qui permet de recupérer le mois suivant du calendrier 
+      * $currentMonthIndex: int=> index du mois 
+       *$year: int=> année
+      */
 
     function nextMonth()
     {
@@ -88,24 +97,45 @@ class CalendrierSession
         }
         $this->initMonth();
     }
+/**
+ * function qui permet d'afficher le nom du mois en cours 
+ * 
+ */
 
     function getMonthName()
     {
         return $this->currentMonthName;
     }
-
+/**
+ * function qui permet d'afficher l'année  en cours 
+ * 
+ */
     function getYear()
     {
         return $this->year;
     }
-
+/**
+ * function qui permet d'afficher le nombre de jour dans le mois 
+ * 
+ */
     function getNbDayInMonth()
     {
         return $this->nbDaysMonth;
     }
-
+/**
+ * function qui permet d'afficher le premier jour du mois 
+ * 
+ */
     function getFirstDayInMonth()
     {
         return $this->firstDayInMonth;
+    }
+/**
+ * function qui permet d'afficher l'index du mois 
+ * 
+ */
+    function getMonthIndex()
+    {
+        return $this->currentMonthIndex;
     }
 }
