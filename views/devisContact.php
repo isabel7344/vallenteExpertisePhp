@@ -61,7 +61,25 @@ require("../controllers/devisContactController.php");
                             <label for="message" class="font-weight-bold">Message</label>
                             <textarea type="text" class="form-control contactcolor" id="message" placeholder="Message"></textarea>
                         </div>
-                        <input class="btn btn-dark text-center" name="submit" type="submit" value="Envoyer">
+                        <!-- Button d'envoie message -->
+                            <button type="button"  class="btn btn-dark text-center"data-toggle="modal"
+                            data-target="#exampleModal"> Envoyer
+                            </button>
+                        <!-- Modal envoie message-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content opinion">
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center- opinion" id="exampleModalLabel">Votre message a bien
+                                    été envoyé. <br>Je vous recontacterai prochainement!</h4>
+                                <button type="button" class="close opinion" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
