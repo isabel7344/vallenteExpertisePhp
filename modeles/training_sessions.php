@@ -140,7 +140,10 @@ class TrainingSessions extends Database
         $month += 1; // car dans le tableau on commence a 0
         $strDate = strval($year) . "-" . str_pad(strval($month), 2, "0", STR_PAD_LEFT) . "-" .  str_pad(strval($day), 2, "0", STR_PAD_LEFT);
 
-        $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN`
+        $query = "SELECT `id`, `NAME_TRAINING`,
+        DATE_FORMAT(`START_DATE_TRAINING`,'%d - %m - %Y') AS `START_DATE_TRAINING`,
+        DATE_FORMAT(`END_DATE_TRAINING`,'%d - %m - %Y') AS `END_DATE_TRAINING`,
+        `NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN`
         FROM `training_sessions` WHERE :date BETWEEN `START_DATE_TRAINING` AND `END_DATE_TRAINING`";
         $buildQuery = parent::getDb()->prepare($query);
         $buildQuery->bindValue("date", $strDate,PDO::PARAM_STR);

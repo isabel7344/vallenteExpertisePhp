@@ -2,18 +2,18 @@
 <!-- Modal d'informations sur les session de formation pour le client sans pouvoir agir dessus -->
 <?php function userModal($TrainingSessionInformations){ ?>
 <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content pr-3">
         <div class="modal-header">
             <h4 class="modal-title">Session de Formation</h4>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
         </div>
-        <div class="modal-body">
-            <p class="text-modal font-weight-bold">Nom de la Formation: <?= strtoupper($TrainingSessionInformations["NAME_TRAINING"]) ?></P>
-            <p class="text-modal font-weight-bold">Date de début de  formation: <?=  strftime($TrainingSessionInformations["START_DATE_TRAINING"]) ?></p>
-            <p class="text-modal font-weight-bold"> Date de fin de   formation: <?= strftime($TrainingSessionInformations["END_DATE_TRAINING"]) ?></p>
-            <p class="text-modal font-weight-bold"> Nombre de places total: <?= $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] ?></p>
-            <p class="text-modal font-weight-bold"> Nombre de places prises: <?= $TrainingSessionInformations["NUMBER_PLACES_TAKEN"] ?></p>
-            <p class="text-modal font-weight-bold"> Nombre de places restantes: <?= $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] - $TrainingSessionInformations["NUMBER_PLACES_TAKEN"] ?></p>
+        <div class="modal-body text-left">
+            <p class="text-modal">Nom de la Formation: <span class="font-weight-bold"><?= strtoupper($TrainingSessionInformations["NAME_TRAINING"]) ?></span></P>
+            <p class="text-modal">Date de début de  formation: <span class="font-weight-bold"> <?=  strftime($TrainingSessionInformations["START_DATE_TRAINING"]) ?></span></p>
+            <p class="text-modal"> Date de fin de   formation: <span class="font-weight-bold"><?= strftime($TrainingSessionInformations["END_DATE_TRAINING"]) ?></span></p>
+            <p class="text-modal"> Nombre de places total: <span class="font-weight-bold"><?= $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] ?></span></p>
+            <p class="text-modal"> Nombre de places prises: <span class="font-weight-bold"><?= $TrainingSessionInformations["NUMBER_PLACES_TAKEN"] ?></span></p>
+            <p class="text-modal"> Nombre de places restantes: <span class="font-weight-bold"><?= $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] - $TrainingSessionInformations["NUMBER_PLACES_TAKEN"] ?></span></p>
         </div>
     </div>
 </div>
