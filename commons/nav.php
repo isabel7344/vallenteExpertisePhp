@@ -12,7 +12,7 @@
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="home" class="btn text-navbar m-2 rounded" href="accueil.php">ACCUEIL</a>
+                    <a id="home" class="btn text-navbar m-2 rounded" href="index.php">ACCUEIL</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle btn text-navbar m-2 rounded" href="services.php" id="navBarServices" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
