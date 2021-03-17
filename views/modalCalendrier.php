@@ -2,13 +2,13 @@
 <!-- Modal d'informations sur les session de formation pour le client sans pouvoir agir dessus -->
 <?php function userModal($TrainingSessionInformations){ ?>
 <div class="modal-dialog" role="document">
-    <div class="modal-content pr-3">
+    <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">Session de Formation</h4>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
         </div>
-        <div class="modal-body text-left">
-            <p class="text-modal">Nom de la Formation: <span class="font-weight-bold"><?= strtoupper($TrainingSessionInformations["NAME_TRAINING"]) ?></span></P>
+        <div class="modal-body ">
+            <p class="text-modal">Nom de la Formation:<br><span class="font-weight-bold"><?= strtoupper($TrainingSessionInformations["NAME_TRAINING"]) ?></span></P>
             <p class="text-modal">Date de début de  formation: <span class="font-weight-bold"> <?=  strftime($TrainingSessionInformations["START_DATE_TRAINING"]) ?></span></p>
             <p class="text-modal"> Date de fin de   formation: <span class="font-weight-bold"><?= strftime($TrainingSessionInformations["END_DATE_TRAINING"]) ?></span></p>
             <p class="text-modal"> Nombre de places total: <span class="font-weight-bold"><?= $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] ?></span></p>
