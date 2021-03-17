@@ -1,1 +1,3 @@
-<?php include_once("/views/accueil.php"); ?>
+<?php header("Location: ./views/accueil.php");
+
+?>
