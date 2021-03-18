@@ -54,7 +54,7 @@ if (isset($_POST['mail'])) {
         $securePhoneNumber = htmlspecialchars($_POST['phoneNumber']);
     }
 
-    if(isset($_POST['Sendmail']) && !empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['mail']) && !empty($_POST['message'])){   
+    if(isset($_POST['Sendmail']) && (isset($_POST['lastName'])) && !(isset($_POST['firstName'])) && (isset($_POST['mail'])) && (isset($_POST['message']))){   
         extract ($_POST);
         $destinataire= 'vallenteexpertise181@gmail.com';
         $expediteur = $_POST['mail'];
