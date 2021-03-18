@@ -59,7 +59,6 @@ if (isset($_POST['mail'])) {
         $destinataire= 'vallenteexpertise181@gmail.com';
         $expediteur = $_POST['mail'];
         $mail= mail($destinataire,$objet,$message,$expediteur.':De vallenteexpertise181@gmail.com : mail de test');
-    var_dump($_POST['submit']);
     if($mail){
         echo 'le mail à été envoyé avec succès';
     }else{
