@@ -61,7 +61,8 @@ require("../controllers/devisContactController.php");
                             <label for="message" class="font-weight-bold">Message</label>
                             <textarea type="text" class="form-control contactcolor" id="message" placeholder="Message"></textarea>
                         </div>
-                        <!-- Button d'envoie message -->
+                        <!-- Button d'envoie message --> 
+                        <a href="mailto:?to=vallenteexpertise181@gmail.com &subject=Devis%20du%20message"> Test de mailto </a>
                             <button type="button"  class="btn btn-dark text-center"data-toggle="modal"
                             data-target="#exampleModal"> Envoyer
                             </button>
@@ -73,6 +74,9 @@ require("../controllers/devisContactController.php");
                             <div class="modal-header">
                                 <h4 class="modal-title text-center- opinion" id="exampleModalLabel">Votre message a bien
                                     été envoyé. <br>Je vous recontacterai prochainement!</h4>
+                                    <form action="devisContact.php" method="POST">
+                                <button type="submit" name="Sendmail">envoie Mail</button>  
+                                    </form> 
                                 <button type="button" class="close opinion" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
