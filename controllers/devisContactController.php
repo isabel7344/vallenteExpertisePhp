@@ -53,17 +53,17 @@ if (isset($_POST['mail'])) {
         $secureMail = htmlspecialchars($_POST['mail']);
         $securePhoneNumber = htmlspecialchars($_POST['phoneNumber']);
     }
-}
-//     if(isset($_POST['Sendmail']) && !empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['mail']) && !empty($_POST['message'])){   
-//         extract ($_POST);
-//         $destinataire= 'vallenteexpertise181@gmail.com';
-//         $expediteur = $_POST['mail'];
-//         $mail= mail($destinataire,$objet,$message,$expediteur.':De vallenteexpertise181@gmail.com : mail de test');
-    
-//     if($mail){
-//         echo 'le mai à été envoyé avec succès';
-//     }else{
-//         echo 'echec envoie de mail';
-//     }
-// }
 
+    if(isset($_POST['Sendmail']) && !empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['mail']) && !empty($_POST['message'])){   
+        extract ($_POST);
+        $destinataire= 'vallenteexpertise181@gmail.com';
+        $expediteur = $_POST['mail'];
+        $mail= mail($destinataire,$objet,$message,$expediteur.':De vallenteexpertise181@gmail.com : mail de test');
+    
+    if($mail){
+        echo 'le mai à été envoyé avec succès';
+    }else{
+        echo 'echec envoie de mail';
+    }
+}
+}
