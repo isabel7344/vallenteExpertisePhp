@@ -74,9 +74,9 @@ require("../controllers/devisContactController.php");
                             <div class="modal-header">
                                 <h4 class="modal-title text-center- opinion" id="exampleModalLabel">Votre message a bien
                                     été envoyé. <br>Je vous recontacterai prochainement!</h4>
-                                    <form action="devisContact.php" method="POST">
+                                    <!-- <form action="devisContact.php" method="POST">
                                 <button type="submit" name="Sendmail">envoie Mail</button>  
-                                    </form> 
+                                    </form>  -->
                                 <button type="button" class="close opinion" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -84,7 +84,6 @@ require("../controllers/devisContactController.php");
                             </div>
                             </div>
                         </div>
-                        <?php  var_dump ($_POST); ?>
                     </form>
                 </div>
             </div>
