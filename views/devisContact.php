@@ -62,7 +62,7 @@ require("../controllers/devisContactController.php");
                             <textarea type="text" class="form-control contactcolor" id="message" placeholder="Message"></textarea>
                         </div>
                         <!-- Button d'envoie message --> 
-                        <a href="mailto:?to=vallenteexpertise181@gmail.com &subject=Devis%20du%20message"> Test de mailto </a>
+                        <!-- <a href="mailto:?to=vallenteexpertise181@gmail.com &subject=Devis%20du%20message">  </a> -->
                             <button type="button"  class="btn btn-dark text-center"data-toggle="modal"
                             data-target="#exampleModal"> Envoyer
                             </button>
