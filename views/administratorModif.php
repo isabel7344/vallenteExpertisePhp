@@ -14,7 +14,7 @@ require ("modalCalendrier.php");
     <link rel="icon" href="../assets/img/logoFondBlanc.png">
     <link rel="stylesheet" href="../assets/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Connexion</title>
+    <title>Vallente Expertise | Administration</title>
 </head>
 
 <body>

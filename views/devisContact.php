@@ -12,7 +12,7 @@ require("../controllers/devisContactController.php");
     <link rel="icon" href="../assets/img/logoFondBlanc.png">
     <link rel="stylesheet" href="../assets/s">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Vallente EXpertise</title>
+    <title>Vallente Expertise | Devis-Contact</title>
 </head>
 
 <body>

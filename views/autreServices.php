@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title>Vallente Expertise</title>
+    <title>Vallente Expertise | Autres Services</title>
 </head>
 
 <body class="body-services">
