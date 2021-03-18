@@ -5,7 +5,7 @@
             <div class="d-flex flex-column flex-xl-row justify-content-between">
                 <div class="text-white text-center">
                     <h6 class="text-uppercase text-center d-none d-xl-block">Nous Contacter </h6>
-                    <a class="iconMail"><em class="fas fa-envelope fa-2x"> </em></a>
+                    <a href="mailto:?to=vallenteexpertise181@gmail.com &subject=Devis%20du%20message" class="iconMail"><em class="fas fa-envelope fa-2x"> </em></a>
                     <p class="AdressMail">vallenteexpertise181@gmail.com<br>
                         Tel: (00225)- 47 74 12 79/ 47 77 76 01 </p>
 
