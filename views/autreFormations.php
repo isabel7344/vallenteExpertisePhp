@@ -9,7 +9,7 @@
     <link rel="icon" href="../assets/img/logoFondBlanc.png">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <title>Vallente EXpertise</title>
+    <title>Vallente Expertise</title>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 
