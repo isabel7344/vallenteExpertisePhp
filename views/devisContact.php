@@ -77,7 +77,6 @@ require("../controllers/devisContactController.php");
                                     <form action="devisContact.php" method="POST">
                                 <button type="submit" name="Sendmail">envoie Mail</button>  
                                     </form> 
-                                  <?php  var_dump($_POST['submit']); ?>
                                 <button type="button" class="close opinion" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -85,6 +84,7 @@ require("../controllers/devisContactController.php");
                             </div>
                             </div>
                         </div>
+                        <?php  var_dump($_POST['submit']); ?>
                     </form>
                 </div>
             </div>
