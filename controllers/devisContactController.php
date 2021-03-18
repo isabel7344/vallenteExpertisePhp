@@ -53,6 +53,7 @@ if (isset($_POST['mail'])) {
         $secureMail = htmlspecialchars($_POST['mail']);
         $securePhoneNumber = htmlspecialchars($_POST['phoneNumber']);
     }
+}
 //     if(isset($_POST['Sendmail']) && !empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['mail']) && !empty($_POST['message'])){   
 //         extract ($_POST);
 //         $destinataire= 'vallenteexpertise181@gmail.com';
@@ -65,4 +66,4 @@ if (isset($_POST['mail'])) {
 //         echo 'echec envoie de mail';
 //     }
 // }
-?>
+
