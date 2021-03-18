@@ -86,7 +86,7 @@ require("modalCalendrier.php");
                     <input name="direction" type="hidden" value="prev">
                     <button style="background-color: none; border: 0px; box-shadow: none" type="submit"> ◀ </button>
                 </form>
-                <span><?= $_SESSION["calendrier"]->getMonthName()  . " " .  $_SESSION["calendrier"]->getYear() ?></span>
+                <span class=" text-month font-weight-bold text-uppercase"><?= $_SESSION["calendrier"]->getMonthName()  . " " .  $_SESSION["calendrier"]->getYear() ?></span>
                 <form action="../controllers/calendrierDispoController.php" method="POST">
                     <input name="month" type="hidden" value=<?= $_SESSION["calendrier"]->getMonthName(); ?>>
                     <input name="year" type="hidden" value=<?= $_SESSION["calendrier"]->getYear(); ?>>
