@@ -84,7 +84,7 @@ require("../controllers/devisContactController.php");
                             </div>
                             </div>
                         </div>
-                        <?php  var_dump($_POST['submit']); ?>
+                        <?php  var_dump ($_POST); ?>
                     </form>
                 </div>
             </div>
