@@ -34,7 +34,8 @@ if(preg_match($regexDate, $END_DATE_TRAINING)){
     $arrayErrors['END_DATE_TRAINING'] = "Veuillez renseigner une valeur correcte";
 }
 
-    // On fera bien attention ici à rajouter l'id de la session de formation concerné par la modification dans le tableau de paramètres à envoyer à la méthode de modification
+    // On fera bien attention ici à rajouter l'id de la session de formation concerné 
+    // par la modification dans le tableau de paramètres à envoyer à la méthode de modification
 $TrainingSessions = [
 	"id" => $id,
 	"NAME_TRAINING" => $NAME_TRAINING,

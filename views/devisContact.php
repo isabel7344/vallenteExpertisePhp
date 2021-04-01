@@ -90,6 +90,9 @@ require("../controllers/devisContactController.php");
             <div class="container-fluid pt-2 bg-dark">
                 <h5 class="text-center text-white border border-danger rounded-pill mt-1 ">SESSIONS DE FORMATIONS DISPONIBLES</h5>
                 <iframe title="calendrier" width="100%" height="450px" style="border: 0px; box-shadow: none" src="calendrier.php"></iframe>
+                <input class="bg-danger text-light text-center m-1 mb-1 mt-1 p-0"  value="Session complète" disabled="disabled" style="width:170px"></input>
+                <input class="bg-success text-light text-center m-1 mb-1 mt-1 p-0" value ="Session disponible" disabled="disabled" style="width:170px" ></input>
+               
             </div>
         </div>
     </div>

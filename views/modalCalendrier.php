@@ -29,15 +29,15 @@
         <div class="modal-body">
         <form class="col-10 m-auto" action="../controllers/modalController.php" method="post">
             <label for="NAME_TRAINING" class="font-weight-bold">Nom de la formation</label>
-            <input type="text" class="form-control contactcolor" name="NAME_TRAINING" value="<?= isset($TrainingSessionInformations["NAME_TRAINING"]) ? $TrainingSessionInformations["NAME_TRAINING"] : "" ?>" >
+            <input type="text" class="form-control contactcolor" name="NAME_TRAINING" value="<?= $TrainingSessionInformations["NAME_TRAINING"] ?>" >
             <label for="START_DATE_TRAINING" class="font-weight-bold">Date début de formation</label>
-            <input type="date" class="form-control contactcolor"  name="START_DATE_TRAINING" value="<?= isset($TrainingSessionInformations["START_DATE_TRAINING"]) ? $TrainingSessionInformations["START_DATE_TRAINING"] : "" ?>">
+            <input type="date" class="form-control contactcolor"  name="START_DATE_TRAINING" value="<?= convertDateToEnglish($TrainingSessionInformations["START_DATE_TRAINING"]) ?>">
             <label for="END_DATE_TRAINING" class="font-weight-bold">Date fin de  formation</label>
-            <input type="date" class="form-control contactcolor"  name="END_DATE_TRAINING" value="<?= isset($TrainingSessionInformations["END_DATE_TRAINING"]) ? $TrainingSessionInformations["END_DATE_TRAINING"] : "" ?>">
+            <input type="date" class="form-control contactcolor"  name="END_DATE_TRAINING" value="<?= convertDateToEnglish($TrainingSessionInformations["END_DATE_TRAINING"]) ?>">
             <label for="NUMBER_OF_PLACES_TRAINING" class="font-weight-bold">Nombre de places total</label>
-            <input type="text" class="form-control contactcolor"  name="NUMBER_OF_PLACES_TRAINING" value="<?= isset($TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"]) ? $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] : "" ?>">
+            <input type="text" class="form-control contactcolor"  name="NUMBER_OF_PLACES_TRAINING" value="<?= $TrainingSessionInformations["NUMBER_OF_PLACES_TRAINING"] ?>">
             <label for="NUMBER_PLACES_TAKEN" class="font-weight-bold">Nombre de places prises</label>
-            <input type="text" class="form-control contactcolor"  name="NUMBER_PLACES_TAKEN" value="<?= isset($TrainingSessionInformations["NUMBER_PLACES_TAKEN"]) ? $TrainingSessionInformations["NUMBER_PLACES_TAKEN"] : "" ?>">
+            <input type="text" class="form-control contactcolor"  name="NUMBER_PLACES_TAKEN" value="<?= $TrainingSessionInformations["NUMBER_PLACES_TAKEN"] ?>">
             <input type="hidden" name="id" value="<?= $TrainingSessionInformations["id"] ?>"/>
             <button type="submit"class="btn btn-secondary m-4" name="submitModifTrainingSessions">Valider la modification</button>
         </form>  
@@ -78,3 +78,9 @@
     </div><!-- /.modal-dialog -->
 </div>
 <?php } ?> 
+
+
+<?php
+function convertDateToEnglish($date) {
+    return join("-", array_reverse(explode("/", $date)));
+}

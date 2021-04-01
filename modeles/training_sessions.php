@@ -175,7 +175,8 @@ class TrainingSessions extends Database
      *
      */
     public function getOneTrainingSessionById(int $id) {
-        $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN` FROM `training_sessions` WHERE `id` = :id;";
+        $query = "SELECT `id`, `NAME_TRAINING`, `START_DATE_TRAINING`,`END_DATE_TRAINING`,`NUMBER_OF_PLACES_TRAINING`,`NUMBER_PLACES_TAKEN`
+         FROM `training_sessions` WHERE `id` = :id;";
         $buildQuery = parent::getDb()->prepare($query);
         $buildQuery->bindValue("id", $id, PDO::PARAM_INT);
         $buildQuery->execute();

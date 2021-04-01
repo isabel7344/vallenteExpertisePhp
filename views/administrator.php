@@ -32,7 +32,7 @@ require("../controllers/administratorController.php");
             <div class="col py-3 px-lg-5 border bg-light">
                 <form class="col-10 m-auto" action="administrator.php" method="post">
                     <h4 class="text-center pt-5" id="contact">SE CONNECTER</h4>
-            <div class="form-group pt-5">
+            <!-- <div class="form-group pt-5">
                 <?= isset($message) ? "<p style=\"color:white; background-color:red;\">" . $message . "</p>" : "" ?>
                 <label for="lastname" class="font-weight-bold">Nom</label>
                 <input type="text" class="form-control contactcolor" id="lastname" name="lastname" value="<?= isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>" placeholder=" Durand ">
@@ -44,9 +44,9 @@ require("../controllers/administratorController.php");
                 <label for="firstname" class="font-weight-bold">Prénom</label>
                 <input type="text" class="form-control contactcolor" id="firstname" name="firstname" value="<?= isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>" placeholder="John">
                 <p class="displayMessage">
-                <?= isset($messageError['firstame']) ? $messageError['firstname'] : '' ?><?= isset($messageSuccess['firstname']) ? $messageSuccess['firstname'] : '' ?>
+                <?= isset($messageError['firstame']) ? $messageError['firstname'] : '' ?>
                 </p>
-            </div>
+            </div> -->
             <div class="form-group" >
                 <label for="username"class="font-weight-bold">Nom d'utilisateur  </label>
                 <input type="text" class="form-control contactcolor" name="username" required <?= isset($_POST["username"]) ? "value=\"" . $_POST['username'] . "\"" : "" ?>>
